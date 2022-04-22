@@ -5,6 +5,7 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { SetListList } from "./setlists/SetListList"
 import { TrackCard } from "./track/TrackCard"
+import { TrackForm } from "./track/TrackForm"
 
 
 
@@ -39,6 +40,9 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
         {/* Render edit set list view at http://localhost:3000/setlist/edit*/}
         <Route path="/setlist/edit" element={''} />
+
+        {/* Render create track view at http://localhost:3000/track/create*/}
+        <Route path="/track/create" element={<TrackForm /> } />
 
         </Route>
 
