@@ -25,7 +25,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
                     <Link className="navbar__link" to="/setlist/create"> Create New Setlist </Link>
                 </li>}
                 <li className="navbar__item">
-                    <Link className="navbar__link" to="/setlists"> All Users Setlists </Link>
+                    <Link className="navbar__link" to="/track/create"> Add New Track </Link>
                 </li>
                 {isAuthenticated
                     ? <li className="navbar__item">

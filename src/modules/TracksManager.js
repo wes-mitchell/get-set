@@ -19,3 +19,15 @@ export const deleteTrack = (trackId) => {
       }
   }).then(response => response.json())
 }
+
+// Adds new track to database
+
+export const addTrack = (newTrack) => { 
+  return fetch(`${remoteURL}/tracks`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newTrack)
+  }).then(response => response.json())
+}
