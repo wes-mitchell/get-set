@@ -1,0 +1,11 @@
+.card {
+  border: solid white 1px;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 7px;
+  /* background-image: url("setlistPaper.jpg"); // This would set the bg image to a wrinkled piece of paper, might be worth trying when complete*/
+}
+
+.card-setListTitle {
+  color: white
+}
