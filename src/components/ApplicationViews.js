@@ -3,7 +3,7 @@ import { Route, Routes, Outlet } from "react-router-dom"
 import { Navigate } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
-import { SetListCard } from "./setlists/SetListCard"
+import { SetListList } from "./setlists/SetListList"
 import { TrackCard } from "./track/TrackCard"
 
 
@@ -25,7 +25,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         <Route path="/" element={<PrivateOutlet />} >
 
         {/* Render the set lists on user login when http://localhost:3000/ */}
-        <Route path="/" element={<SetListCard />} />
+        <Route path="/" element={<SetListList />} />
 
 
         {/* Render the create setlist form http://localhost:3000/setlist/create */}
