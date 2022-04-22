@@ -26,7 +26,7 @@ export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handl
             {setList.title}   
         </h3>
         {/* <p>Notes: {setList.notes}</p> */}
-        {setListTracks.map(setListTrack => ( (setListTrack.trackId === track.id && setListTrack.id === setList.id) ? <TrackCard track={track} key={track.id} /> : '' ) ) }
+        {/* {setListTracks.map(setListTrack => ( (setListTrack.trackId === track.id && setListTrack.id === setList.id) ? <TrackCard track={track} key={track.id} /> : '' ) ) } */}
         </div>
       </div>
   )

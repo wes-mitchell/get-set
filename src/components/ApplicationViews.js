@@ -33,7 +33,13 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
         {/* Render all user setlists on http://localhost:3000/setlist */}
         <Route path="/setlists" element={''} />
-                
+
+        {/* Render practice view at http://localhost:3000/setlist/practice*/}
+        <Route path="/setlist/practice" element={''} />
+
+        {/* Render edit set list view at http://localhost:3000/setlist/edit*/}
+        <Route path="/setlist/edit" element={''} />
+
         </Route>
 
         {/* End of all Private Outlet Paths */}
