@@ -55,13 +55,6 @@ export const SetListList = () => {
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========
   return (
     <>
-      <section className="section-content">
-        <button type="button"
-          className="btn"
-          onClick={() => { navigate("/setlist/create") }}>
-          New Setlist
-        </button>
-      </section>
       <div className="container-cards">
         {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteTrack={handleDeleteTrack}/>  : '' ) ) }
       </div>

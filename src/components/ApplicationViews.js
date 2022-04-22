@@ -45,7 +45,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         {/* End of all Private Outlet Paths */}
 
         <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setAuthUser={setAuthUser} />} />
 
         </Routes>       
       </>
