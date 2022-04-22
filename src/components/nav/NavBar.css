@@ -1,0 +1,31 @@
+.navbar {
+  /* display: flex;
+  flex-wrap: nowrap;
+  margin-left: 0px; */
+  background-color: black;
+  margin-top: 0px;
+}
+
+.navbar__item {
+  flex-basis: 20%;
+  list-style-type: none;
+}
+
+.navbar__link {
+  margin-left: 15px;
+  border: #B6B173 solid 1px;
+  padding: 5px;
+  color: #B6B173;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+img {
+  width: 100px;
+  height: auto
+}
+
+li {
+  display: table-cell;
+  vertical-align: middle;
+}

@@ -1,0 +1,16 @@
+div .trackCard {
+  border: 1px solid white;
+  display: flex;
+  width: 350px;
+}
+
+.trackName {
+  padding: 0px 10px 0px 3px;
+  color: white;
+}
+
+.trackBPM {
+  border-left: solid 1px white;
+  padding-left: 10px;
+  color: white;
+}
