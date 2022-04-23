@@ -2,10 +2,10 @@ import React from "react";
 
 const remoteURL = "http://localhost:8088"
 
-// Gets all tracks from API
+// Gets all tracks from API and sorts them in alphabetical order
 
 export const getAllTracks = () => { 
-  return fetch(`${remoteURL}/tracks`)
+  return fetch(`${remoteURL}/tracks?_sort=name&_order=asc`)
   .then(res => res.json())
 }
 
