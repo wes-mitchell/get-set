@@ -10,11 +10,24 @@ export const getAllSetLists = () => {
 }
 
 // Deletes a setlist by ID
+
 export const deleteSetList = (setListId) => {
   return fetch(`http://localhost:8088/setlists/${setListId}`, {
       method: "DELETE",
       headers: {
           "Content-type": "application/json"
       }
+  }).then(response => response.json())
+}
+
+// Adds new set list to database
+
+export const addSetList = (newSetList) => { 
+  return fetch(`${remoteURL}/setLists`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newSetList)
   }).then(response => response.json())
 }
