@@ -25,7 +25,7 @@ export const SetListForm = () => {
     setSetList(newSetList)
   }
 
-  const handleClickSaveTrack = (evt) => {
+  const handleClickSaveSetList = (evt) => {
     evt.preventDefault()
 
     if (setList.notes === '' || setList.title === '') {
@@ -49,22 +49,16 @@ export const SetListForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="notes">Notes: </label>
-          <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="i.e. 'practice', 'festival gig'" value={setList.notes} />
+          <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder='i.e. "practice" | "festival gig"' value={setList.notes} />
         </div>
       </fieldset>
-      <fieldset>
+      {/* <fieldset>
         <div className="form-group">
           <label htmlFor="notes">Notes:</label>
           <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Notes for track" value={track.notes} />
         </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="runTime">Run Time: </label>
-          <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Run Time" value={track.runTime} />
-        </div>
-      </fieldset>
-      <button type="button" onClick={handleClickSaveTrack}>Save Track</button>
+      </fieldset> */}
+      <button type="button" onClick={handleClickSaveSetList}>Save Setlist</button>
     </form>
   )
 }

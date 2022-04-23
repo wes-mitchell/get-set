@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { SetListList } from "./setlists/SetListList"
-import { TrackCard } from "./track/TrackCard"
+import { SetListForm } from "./setlists/SetListForm"
 import { TrackForm } from "./track/TrackForm"
 
 
@@ -30,7 +30,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
 
         {/* Render the create setlist form http://localhost:3000/setlist/create */}
-        <Route path="/setlist/create" element={''} />
+        <Route path="/setlist/create" element={<SetListForm /> } />
 
         {/* Render all user setlists on http://localhost:3000/setlist */}
         <Route path="/setlists" element={''} />
