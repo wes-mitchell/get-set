@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addSetList } from "../../modules/SetListManager";
+import { getAllTracks } from "../../modules/TracksManager";
 
 
 export const SetListForm = () => {
@@ -9,6 +10,7 @@ export const SetListForm = () => {
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(true)
+  const [tracks, setTracks] = useState([])
 
   const [setList, setSetList] = useState({
     userId: loggedInUser.id,
@@ -16,7 +18,7 @@ export const SetListForm = () => {
     notes: ''
   })
 
-
+  console.log(tracks);
 
   const handleControlledInputChange = evt => {
     const newSetList = { ...setList }
@@ -37,6 +39,10 @@ export const SetListForm = () => {
     }
   }
 
+  useEffect(() => {
+    getAllTracks().then(setTracks)
+  }, [])
+
   return (
     <form className="setListForm">
       <h2 className="setListForm__title">New Setlist</h2>
@@ -52,12 +58,16 @@ export const SetListForm = () => {
           <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder='i.e. "practice" | "festival gig"' value={setList.notes} />
         </div>
       </fieldset>
-      {/* <fieldset>
+      <fieldset>
         <div className="form-group">
-          <label htmlFor="notes">Notes:</label>
-          <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Notes for track" value={track.notes} />
+          {tracks.map((track) => track.userId === loggedInUser.id ?
+            <div>
+              <input type="checkbox" id={track.id} value={track.name} key={track.id} />
+              <label htmlFor="trackName">{track.name}</label>
+            </div> : ''
+          )}
         </div>
-      </fieldset> */}
+      </fieldset>
       <button type="button" onClick={handleClickSaveSetList}>Save Setlist</button>
     </form>
   )

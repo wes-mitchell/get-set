@@ -11,10 +11,10 @@ export const TrackForm = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const [track, setTrack] = useState({
-    "name": '',
-    "bpm": '',
-    "notes": '',
-    "runTime": '',
+    name: '',
+    bpm: '',
+    notes: '',
+    runTime: '',
     userId: loggedInUser.id,
   })
 
@@ -24,13 +24,16 @@ export const TrackForm = () => {
     const newTrack = { ...track }
     let selectedVal = evt.target.value
     newTrack[evt.target.id] = selectedVal
+    if (evt.target.value.includes('bpm')) {
+      selectedVal = parseInt(selectedVal)
+    }
     setTrack(newTrack)
   }
 
   const handleClickSaveTrack = (evt) => {
     evt.preventDefault()
 
-    if (track.name === '' || track.bpm === '' || track.notes === '' || track.runTime === '') {
+    if (track.name === '' || track.bpm === ''|| track.notes === '' || track.runTime === '') {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
     } else {

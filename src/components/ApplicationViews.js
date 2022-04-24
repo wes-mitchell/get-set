@@ -6,6 +6,7 @@ import { Register } from "./auth/Register"
 import { SetListList } from "./setlists/SetListList"
 import { SetListForm } from "./setlists/SetListForm"
 import { TrackForm } from "./track/TrackForm"
+import { TrackEditForm } from "./track/TrackEditForm"
 
 
 
@@ -43,7 +44,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
         {/* Render create track view at http://localhost:3000/track/create*/}
         <Route path="/track/create" element={<TrackForm /> } />
-
+        <Route path="/track/:trackId/edit" element={<TrackEditForm />} />
         </Route>
 
         {/* End of all Private Outlet Paths */}
