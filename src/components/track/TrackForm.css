@@ -1,0 +1,35 @@
+.trackForm {
+  display: flex; 
+  flex-direction: column; 
+  flex-wrap: wrap;
+  margin: 15px;
+  border: solid 1px white;
+  padding: 5px;
+  max-width: 420px;
+  border-radius: 10px;
+}
+.trackForm__title {
+  margin-top: 0px;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 300px; */
+}
+
+.form-group-bpm {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75px;
+}
+
+.form-group-runTime {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75px;
+}
+
+button {
+  align-self: flex-end;
+}

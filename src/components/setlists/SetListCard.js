@@ -10,7 +10,6 @@ export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handl
   const [tracks, setTracks] = useState([])
   const [setListTracks, setSetListTracks] = useState([])
 
-
   useEffect(() => {
     getAllTracks().then(setTracks)
   }, [])
@@ -25,7 +24,7 @@ export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handl
         <h3 className="card-setListTitle">
             {setList.title}   
         </h3>
-        {/* <p>Notes: {setList.notes}</p> */}
+        <p>Notes: {setList.notes}</p>
         {/* {setListTracks.map(setListTrack => ( (setListTrack.trackId === track.id && setListTrack.id === setList.id) ? <TrackCard track={track} key={track.id} /> : '' ) ) } */}
         </div>
       </div>

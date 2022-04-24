@@ -18,8 +18,6 @@ export const SetListForm = () => {
     notes: ''
   })
 
-  console.log(tracks);
-
   const handleControlledInputChange = evt => {
     const newSetList = { ...setList }
     let selectedVal = evt.target.value
@@ -61,7 +59,7 @@ export const SetListForm = () => {
       <fieldset>
         <div className="form-group">
           {tracks.map((track) => track.userId === loggedInUser.id ?
-            <div>
+            <div key={track.id}>
               <input type="checkbox" id={track.id} value={track.name} key={track.id} />
               <label htmlFor="trackName">{track.name}</label>
             </div> : ''
