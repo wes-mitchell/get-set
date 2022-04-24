@@ -12,7 +12,7 @@ export const TrackForm = () => {
 
   const [track, setTrack] = useState({
     name: '',
-    bpm: '',
+    bpm: parseInt(''),
     notes: '',
     runTime: '',
     userId: loggedInUser.id,
@@ -23,18 +23,22 @@ export const TrackForm = () => {
   const handleControlledInputChange = evt => {
     const newTrack = { ...track }
     let selectedVal = evt.target.value
-    newTrack[evt.target.id] = selectedVal
-    if (evt.target.value.includes('bpm')) {
+    if (evt.target.id.includes('bpm')) {
       selectedVal = parseInt(selectedVal)
     }
+    newTrack[evt.target.id] = selectedVal
     setTrack(newTrack)
+    console.log(newTrack);
   }
 
   const handleClickSaveTrack = (evt) => {
     evt.preventDefault()
 
-    if (track.name === '' || track.bpm === ''|| track.notes === '' || track.runTime === '') {
+    if (track.name === '' || track.notes === '' || track.runTime === '') {
       window.alert("Looks like you forgot something...")
+      setIsLoading(false)
+    } else if (Number.isInteger(track.bpm) === false) {
+      window.alert("Please only use a number for bpm marking")
       setIsLoading(false)
     } else {
       setIsLoading(true)
@@ -54,7 +58,7 @@ export const TrackForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="bpm">BPM: </label>
-          <input type="text" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={track.bpm} />
+          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={parseInt(track.bpm)} />
         </div>
       </fieldset>
       <fieldset>
