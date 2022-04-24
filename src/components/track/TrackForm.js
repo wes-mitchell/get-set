@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addTrack } from "../../modules/TracksManager";
+import "./TrackForm.css"
 
 
 export const TrackForm = () => {
@@ -28,7 +29,6 @@ export const TrackForm = () => {
     }
     newTrack[evt.target.id] = selectedVal
     setTrack(newTrack)
-    console.log(newTrack);
   }
 
   const handleClickSaveTrack = (evt) => {
@@ -48,17 +48,11 @@ export const TrackForm = () => {
 
   return (
     <form className="trackForm">
-      <h2 className="trackForm__title">New Track</h2>
+      <h2 className="trackForm__title">Add A Track</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="trackName">Track Name:</label>
           <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Track Name" value={track.name} />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="bpm">BPM: </label>
-          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={parseInt(track.bpm)} />
         </div>
       </fieldset>
       <fieldset>
@@ -68,9 +62,15 @@ export const TrackForm = () => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
+        <div className="form-group-bpm">
+          <label htmlFor="bpm">BPM: </label>
+          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM" value={parseInt(track.bpm)} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group-runTime">
           <label htmlFor="runTime">Run Time: </label>
-          <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Run Time" value={track.runTime} />
+          <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="X:XX" value={track.runTime} />
         </div>
       </fieldset>
       <button type="button" onClick={handleClickSaveTrack}>Save Track</button>
