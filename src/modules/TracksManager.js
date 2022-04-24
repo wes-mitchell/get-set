@@ -9,6 +9,13 @@ export const getAllTracks = () => {
   .then(res => res.json())
 }
 
+// Returns one track from database fetched by id
+
+export const getTrackById = (trackId) => {
+  return fetch(`${remoteURL}/tracks/${trackId}`)
+  .then(res => res.json())
+}
+
 // Deletes track with reference to track id
 
 export const deleteTrack = (trackId) => {
@@ -31,3 +38,15 @@ export const addTrack = (newTrack) => {
     body: JSON.stringify(newTrack)
   }).then(response => response.json())
 }
+
+// Fetches track by id and updates database with info from edit form
+
+export const updateTrack = (editedTrack) => { 
+  return fetch(`${remoteURL}/tracks/${editedTrack.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedTrack)
+  }).then(data => data.json())
+ }
