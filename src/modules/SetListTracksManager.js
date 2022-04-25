@@ -5,7 +5,7 @@ const remoteURL = "http://localhost:8088"
 // Gets all set list tracks from API
 
 export const getAllSetListTracks = () => { 
-  return fetch(`${remoteURL}/setListTracks?_expand=setList&_expand=track`)
+  return fetch(`${remoteURL}/setListTracks?_expand=setList&_expand=song`)
   .then(res => res.json())
 }
 

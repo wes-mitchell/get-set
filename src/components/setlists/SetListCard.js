@@ -1,13 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAllTracks } from "../../modules/TracksManager";
 import { getAllSetListTracks } from "../../modules/SetListTracksManager";
-import { TrackCard } from "../track/TrackCard";
-import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
+import { SongCard } from "../song/SongCard";
 import "./SetListCard.css"
 
-export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handleAddNotes }) => {
+export const SetListCard = ({ setList, handleDeleteSong, handleEditSong, handleAddNotes }) => {
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -28,7 +26,7 @@ export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handl
           {setList.title}
         </h3>
         <p>Notes: {setList.notes}</p>
-        {setListTracks.map(track => <TrackCard track={track} key={track.id} /> )}
+        {setListTracks.map(track => <SongCard track={track} key={track.id} /> )}
       </div>
     </div>
   )

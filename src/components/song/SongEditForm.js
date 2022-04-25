@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams} from "react-router-dom";
-import { addTrack } from "../../modules/TracksManager";
-import { updateTrack, getTrackById } from "../../modules/TracksManager";
+import { addSong } from "../../modules/SongsManager";
+import { updateSong, getSongById } from "../../modules/SongsManager";
 
 
-export const TrackEditForm = () => {
+export const SongEditForm = () => {
 
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
   const navigate = useNavigate()
-  const {trackId} = useParams()
+  const {songId} = useParams()
   const [isLoading, setIsLoading] = useState(true)
 
-  const [track, setTrack] = useState({
+  const [song, setSong] = useState({
     name: '',
     bpm: '',
     notes: '',
@@ -23,38 +23,38 @@ export const TrackEditForm = () => {
 
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...track }
+    const stateToChange = { ...song }
     stateToChange[evt.target.id] = evt.target.value
     if (evt.target.value.includes('bpm')) {
       stateToChange = parseInt(stateToChange)
     }
-    setTrack(stateToChange)
+    setSong(stateToChange)
   }
 
-  const handleUpdateTrack = (evt) => {
+  const handleUpdateSong = (evt) => {
     evt.preventDefault()
 
-    const editedTrack = {
-      name: track.name,
-      bpm: parseInt(track.bpm),
-      notes: track.notes,
-      runTime: track.runTime,
+    const editedSong = {
+      name: song.name,
+      bpm: parseInt(song.bpm),
+      notes: song.notes,
+      runTime: song.runTime,
       userId: loggedInUser.id,
-      id: trackId
+      id: songId
     }
 
-    if (track.name === '' || track.bpm === '' || track.notes === '' || track.runTime === '') {
+    if (song.name === '' || song.bpm === '' || song.notes === '' || song.runTime === '') {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
     } else {
       setIsLoading(true)
-      updateTrack(editedTrack).then(() => navigate('/'))
+      updateSong(editedSong).then(() => navigate('/'))
     }
   }
 
   useEffect(() => {
-    getTrackById(trackId)
-    .then(setTrack)
+    getSongById(songId)
+    .then(setSong)
     setIsLoading(false)
   }, [])
 
@@ -64,28 +64,28 @@ export const TrackEditForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="trackName">Track Name:</label>
-          <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Track Name" value={track.name} />
+          <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Track Name" value={song.name} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
           <label htmlFor="bpm">BPM: </label>
-          <input type="text" id="bpm" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={track.bpm} />
+          <input type="text" id="bpm" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={song.bpm} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
           <label htmlFor="notes">Notes:</label>
-          <input type="text" id="notes" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Notes for track" value={track.notes} />
+          <input type="text" id="notes" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Notes for track" value={song.notes} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
           <label htmlFor="runTime">Run Time: </label>
-          <input type="text" id="runTime" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Run Time" value={track.runTime} />
+          <input type="text" id="runTime" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Run Time" value={song.runTime} />
         </div>
       </fieldset>
-      <button type="button" onClick={handleUpdateTrack}>Save Track</button>
+      <button type="button" onClick={handleUpdateSong}>Save Track</button>
     </form>
   )
 }
