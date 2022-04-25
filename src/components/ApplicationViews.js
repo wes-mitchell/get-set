@@ -5,8 +5,8 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { SetListList } from "./setlists/SetListList"
 import { SetListForm } from "./setlists/SetListForm"
-import { TrackForm } from "./track/TrackForm"
-import { TrackEditForm } from "./track/TrackEditForm"
+import { SongForm } from "./song/SongForm"
+import { SongEditForm } from "./song/SongEditForm"
 
 
 
@@ -43,8 +43,8 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         <Route path="/setlist/edit" element={''} />
 
         {/* Render create track view at http://localhost:3000/track/create*/}
-        <Route path="/track/create" element={<TrackForm /> } />
-        <Route path="/track/:trackId/edit" element={<TrackEditForm />} />
+        <Route path="/song/create" element={<SongForm /> } />
+        <Route path="/song/:songId/edit" element={<SongEditForm />} />
         </Route>
 
         {/* End of all Private Outlet Paths */}

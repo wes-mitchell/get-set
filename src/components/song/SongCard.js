@@ -1,12 +1,12 @@
 import React from "react";
-import "./TrackCard.css"
+import "./SongCard.css"
 
-export const TrackCard = ({ track }) => {
+export const SongCard = ({ track }) => {
   return (
     <>
       <div className="trackCard">
-          <p className="trackName">{track.track.name}</p>
-          <p className="trackBPM">{track.track.bpm} BPM</p>
+          <p className="trackName">{track.song.name}</p>
+          <p className="trackBPM">{track.song.bpm} BPM</p>
       </div>
       <div className="trackButtons">
         <button type="button" className="trackNotes">Notes</button>

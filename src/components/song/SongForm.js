@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addTrack } from "../../modules/TracksManager";
-import "./TrackForm.css"
+import { addSong } from "../../modules/SongsManager";
+import "./SongForm.css"
 
 
-export const TrackForm = () => {
+export const SongForm = () => {
 
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(true)
 
-  const [track, setTrack] = useState({
+  const [song, setSong] = useState({
     name: '',
     bpm: parseInt(''),
     notes: '',
@@ -22,27 +22,27 @@ export const TrackForm = () => {
 
 
   const handleControlledInputChange = evt => {
-    const newTrack = { ...track }
+    const newSong = { ...song }
     let selectedVal = evt.target.value
     if (evt.target.id.includes('bpm')) {
       selectedVal = parseInt(selectedVal)
     }
-    newTrack[evt.target.id] = selectedVal
-    setTrack(newTrack)
+    newSong[evt.target.id] = selectedVal
+    setSong(newSong)
   }
 
-  const handleClickSaveTrack = (evt) => {
+  const handleClickSaveSong = (evt) => {
     evt.preventDefault()
 
-    if (track.name === '' || track.notes === '' || track.runTime === '') {
+    if (song.name === '' || song.notes === '' || song.runTime === '') {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
-    } else if (Number.isInteger(track.bpm) === false) {
+    } else if (Number.isInteger(song.bpm) === false) {
       window.alert("Please only use a number for bpm marking")
       setIsLoading(false)
     } else {
       setIsLoading(true)
-      addTrack(track).then(() => navigate('/'))
+      addSong(song).then(() => navigate('/'))
     }
   }
 
@@ -52,28 +52,28 @@ export const TrackForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="trackName">Track Name:</label>
-          <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Track Name" value={track.name} />
+          <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Track Name" value={song.name} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
           <label htmlFor="notes">Notes:</label>
-          <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Notes for track" value={track.notes} />
+          <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Notes for track" value={song.notes} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group-bpm">
           <label htmlFor="bpm">BPM: </label>
-          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM" value={parseInt(track.bpm)} />
+          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM" value={parseInt(song.bpm)} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group-runTime">
           <label htmlFor="runTime">Run Time: </label>
-          <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="X:XX" value={track.runTime} />
+          <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="X:XX" value={song.runTime} />
         </div>
       </fieldset>
-      <button type="button" onClick={handleClickSaveTrack}>Save Track</button>
+      <button type="button" onClick={handleClickSaveSong}>Save Track</button>
     </form>
   )
 }

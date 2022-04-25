@@ -4,22 +4,22 @@ const remoteURL = "http://localhost:8088"
 
 // Gets all tracks from API and sorts them in alphabetical order
 
-export const getAllTracks = () => { 
-  return fetch(`${remoteURL}/tracks?_sort=name&_order=asc`)
+export const getAllSongs = () => { 
+  return fetch(`${remoteURL}/songs?_sort=name&_order=asc`)
   .then(res => res.json())
 }
 
 // Returns one track from database fetched by id
 
-export const getTrackById = (trackId) => {
-  return fetch(`${remoteURL}/tracks/${trackId}`)
+export const getSongById = (songId) => {
+  return fetch(`${remoteURL}/songs/${songId}`)
   .then(res => res.json())
 }
 
 // Deletes track with reference to track id
 
-export const deleteTrack = (trackId) => {
-  return fetch(`http://localhost:8088/tracks/${trackId}`, {
+export const deleteSong = (songId) => {
+  return fetch(`http://localhost:8088/songs/${songId}`, {
       method: "DELETE",
       headers: {
           "Content-type": "application/json"
@@ -29,24 +29,24 @@ export const deleteTrack = (trackId) => {
 
 // Adds new track to database
 
-export const addTrack = (newTrack) => { 
-  return fetch(`${remoteURL}/tracks`, {
+export const addSong = (newSong) => { 
+  return fetch(`${remoteURL}/songs`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(newTrack)
+    body: JSON.stringify(newSong)
   }).then(response => response.json())
 }
 
 // Fetches track by id and updates database with info from edit form
 
-export const updateTrack = (editedTrack) => { 
-  return fetch(`${remoteURL}/tracks/${editedTrack.id}`, {
+export const updateSong = (editedSong) => { 
+  return fetch(`${remoteURL}/songs/${editedSong.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(editedTrack)
+    body: JSON.stringify(editedSong)
   }).then(data => data.json())
  }

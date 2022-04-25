@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addSetList } from "../../modules/SetListManager";
-import { getAllTracks } from "../../modules/TracksManager";
+import { getAllSongs } from "../../modules/SongsManager";
 import './SetListForm.css'
 
 
@@ -40,7 +40,7 @@ export const SetListForm = () => {
   }
 
   useEffect(() => {
-    getAllTracks().then(setTracks)
+    getAllSongs().then(setTracks)
   }, [])
 
   return (

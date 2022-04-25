@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { SetListCard } from './SetListCard';
 import { getAllSetLists } from '../../modules/SetListManager';
 import { getAllUsers } from '../../modules/UsersManager';
-import { deleteTrack } from '../../modules/TracksManager';
+import { deleteSong } from '../../modules/SongsManager';
 import { deleteSetList } from '../../modules/SetListManager';
 
 export const SetListList = () => {
@@ -26,16 +26,16 @@ export const SetListList = () => {
 
   // Handles the delete track gesture when clicked
 
-  const handleDeleteTrack = (trackID) => {
+  const handleDeleteSong = (trackID) => {
     setIsLoading(true)
-    deleteTrack(trackID)
+    deleteSong(trackID)
     .then(setIsLoading(false))
   }
 
   // Handles the edit track button when clicked
 
-  const handleEditTrack = (trackObj) => {
-
+  const handleEditSong = (songObj) => {
+    
   }
 
 
@@ -56,7 +56,7 @@ export const SetListList = () => {
   return (
     <>
       <div className="container-cards">
-        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteTrack={handleDeleteTrack}/>  : '' ) ) }
+        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong}/>  : '' ) ) }
       </div>
       <div className="setListButtons">
         <button type="button" 
