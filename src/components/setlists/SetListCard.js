@@ -4,29 +4,38 @@ import { Link } from "react-router-dom";
 import { getAllTracks } from "../../modules/TracksManager";
 import { getAllSetListTracks } from "../../modules/SetListTracksManager";
 import { TrackCard } from "../track/TrackCard";
+import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import "./SetListCard.css"
 
 export const SetListCard = ({ setList, handleDeleteTrack, handleEditTrack, handleAddNotes }) => {
-  const [tracks, setTracks] = useState([])
   const [setListTracks, setSetListTracks] = useState([])
+  // const [currentSetList, setCurrentSetList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
+  const thisSetList = (setArr) => {return setArr.filter(setListTrack => (setListTrack.setListId === setList.id))}
+
+  // console.log(thisSetList);
+
+  // useEffect(() => {
+  //   getAllTracks()
+  //   .then(setTracks)
+  // }, [])
+  
   useEffect(() => {
-    getAllTracks().then(setTracks)
+    getAllSetListTracks()
+    .then(res => thisSetList(res))
+    .then(res => setSetListTracks(res))
   }, [])
-
-  useEffect(() => {
-    getAllSetListTracks().then(setSetListTracks)
-  }, [])
-
+  
   return (
     <div className="card">
       <div className="card-content">
         <h3 className="card-setListTitle">
-            {setList.title}   
+          {setList.title}
         </h3>
         <p>Notes: {setList.notes}</p>
-        {/* {setListTracks.map(setListTrack => ( (setListTrack.trackId === track.id && setListTrack.id === setList.id) ? <TrackCard track={track} key={track.id} /> : '' ) ) } */}
-        </div>
+        {setListTracks.map(track => <TrackCard track={track} key={track.id} /> )}
       </div>
+    </div>
   )
 }

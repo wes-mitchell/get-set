@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addSetList } from "../../modules/SetListManager";
 import { getAllTracks } from "../../modules/TracksManager";
+import './SetListForm.css'
+
 
 
 export const SetListForm = () => {
