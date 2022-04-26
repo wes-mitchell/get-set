@@ -56,13 +56,11 @@ export const SetListForm = () => {
       setIsLoading(true)
 
       Promise.all([addSetList(setList)
-        .then(getAllSetLists)
-        .then(allSets => {
-          const setId = (allSets[allSets.length - 1].id);
+        .then(setListObj => {
           songs.forEach(song => {
             if (song.checked === true) {
               let newSetListTrack = {
-                setListId: setId,
+                setListId: setListObj.id,
                 songId: song.id
               }
               addSetListTrack(newSetListTrack)
