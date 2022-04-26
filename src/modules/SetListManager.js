@@ -31,3 +31,10 @@ export const addSetList = (newSetList) => {
     body: JSON.stringify(newSetList)
   }).then(response => response.json())
 }
+
+// Gets all setlists for every user
+
+export const getSetListById = (setListId) => { 
+  return fetch(`${remoteURL}/setLists/${setListId}`)
+  .then(res => res.json())
+}
