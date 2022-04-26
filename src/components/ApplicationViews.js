@@ -7,6 +7,7 @@ import { SetListList } from "./setlists/SetListList"
 import { SetListForm } from "./setlists/SetListForm"
 import { SongForm } from "./song/SongForm"
 import { SongEditForm } from "./song/SongEditForm"
+import { SetListPracticeView } from "./setlists/SetListPracticeView"
 
 
 
@@ -36,15 +37,15 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         {/* Render all user setlists on http://localhost:3000/setlist */}
         <Route path="/setlists" element={''} />
 
-        {/* Render practice view at http://localhost:3000/setlist/practice*/}
-        <Route path="/setlist/practice" element={''} />
-
         {/* Render edit set list view at http://localhost:3000/setlist/edit*/}
         <Route path="/setlist/edit" element={''} />
 
-        {/* Render create track view at http://localhost:3000/track/create*/}
+        {/* Render create track view at http://localhost:3000/song/create*/}
         <Route path="/song/create" element={<SongForm /> } />
         <Route path="/song/:songId/edit" element={<SongEditForm />} />
+
+        {/* Render practice view at http://localhost:3000/setlist/practice*/}
+        <Route path="/setlist/:setListId/practice" element={<SetListPracticeView />} />
         </Route>
 
         {/* End of all Private Outlet Paths */}
