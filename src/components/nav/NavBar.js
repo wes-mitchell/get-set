@@ -15,7 +15,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
     return (
         <>
             <ul className="navbar">
-                <li className="navbar__item">
+                <li className="navbar__logo">
                     <img src="./images/logo.png" alt="get set logo" />
                 </li>
                 <li className="navbar__item">
