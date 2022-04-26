@@ -40,7 +40,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleEditSong, hand
           </button>
           <button type="button"
             className="setListDelete"
-            onClick={handleDeleteSetList}>
+            onClick={() => handleDeleteSetList(setList.id)}>
             Delete</button>
           <button type="button"
             className="setListPractice"
