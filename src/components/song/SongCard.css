@@ -1,5 +1,5 @@
 div .trackCard {
-  border: 1px solid white;
+  border: 1px solid black;
   display: flex;
   width: 375px;
   justify-content: space-between;
@@ -7,13 +7,16 @@ div .trackCard {
 
 .trackName {
   padding: 0px 10px 0px 3px;
-  color: white;
+  /* color: white; */
 }
 
 .trackBPM {
-  border-left: solid 1px white;
+  border-left: solid 1px black;
   padding-left: 10px;
-  color: white;
+  padding-right: 10px;
+  width: 63px;
+  text-align: left;
+  /* color: white; */
 }
 
 .trackButtons {

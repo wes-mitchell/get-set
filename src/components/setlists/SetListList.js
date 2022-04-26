@@ -5,6 +5,7 @@ import { getAllSetLists } from '../../modules/SetListManager';
 import { getAllUsers } from '../../modules/UsersManager';
 import { deleteSong } from '../../modules/SongsManager';
 import { deleteSetList } from '../../modules/SetListManager';
+import './SetListList.css'
 
 export const SetListList = () => {
   // The initial state is an empty array
@@ -56,9 +57,9 @@ export const SetListList = () => {
   return (
     <>
       <div className="container-cards">
-        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong}/>  : '' ) ) }
-      </div>
-      <div className="setListButtons">
+        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong} handleDeleteSetList={handleDeleteSetList} />  : '' ) ) }
+        </div>
+      {/* <div className="setListButtons">
         <button type="button" 
           className="setListEdit"
           onClick={() => { navigate("/setlist/edit") }}>
@@ -72,7 +73,7 @@ export const SetListList = () => {
           className="setListPractice"
           onClick={() => navigate("/setlist/practice")}
           >Practice</button>
-      </div>
+      </div> */}
     </>
   )
 }
