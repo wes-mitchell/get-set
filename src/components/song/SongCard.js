@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./SongCard.css"
 
 export const SongCard = ({ track }) => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="trackCard">
@@ -10,7 +12,7 @@ export const SongCard = ({ track }) => {
       </div>
       <div className="trackButtons">
         <button type="button" className="trackNotes">Notes</button>
-        <button type="button" className="trackEdit">Edit</button>
+        <button type="button" className="trackEdit" onClick={() => navigate(`/song/${track.song.id}/edit`)}>Edit</button>
         <button type="button" className="trackDelete">Delete</button>
       </div>
     </>
