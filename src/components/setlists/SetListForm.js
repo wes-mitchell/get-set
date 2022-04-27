@@ -48,8 +48,9 @@ export const SetListForm = () => {
 
   const handleClickSaveSetList = (evt) => {
     evt.preventDefault()
+    const checkedSong = songs.find(song => song.checked)
 
-    if (setList.notes === '' || setList.title === '') {
+    if (setList.notes === '' || setList.title === '' || !checkedSong) {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
     } else {

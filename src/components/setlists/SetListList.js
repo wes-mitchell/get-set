@@ -68,21 +68,6 @@ export const SetListList = () => {
       <div className="container-cards">
         {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong} handleDeleteSetList={handleDeleteSetList} /> : ''))}
       </div>
-      {/* <div className="setListButtons">
-        <button type="button" 
-          className="setListEdit"
-          onClick={() => { navigate("/setlist/edit") }}>
-          Edit
-        </button>
-        <button type="button" 
-          className="setListDelete"
-          onClick={handleDeleteSetList}>
-          Delete</button>
-        <button type="button" 
-          className="setListPractice"
-          onClick={() => navigate("/setlist/practice")}
-          >Practice</button>
-      </div> */}
     </>
   )
 }
