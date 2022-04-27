@@ -47,7 +47,7 @@ export const SetListList = () => {
   }
 
 
-  // ======== get all users from API on component's firs render to match with setListId ========
+  // ======== get all users from API on component's first render to match with setListId ========
 
   useEffect(() => {
     getAllUsers()

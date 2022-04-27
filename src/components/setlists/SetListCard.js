@@ -15,18 +15,15 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleEditSong, hand
 
   const thisSetList = (setArr) => {
     return setArr.filter(setListTrack => {
-      console.log(setList)
       return setListTrack.setListId === setList.id
     })
   }
 
 
   useEffect(() => {
-    console.log(setList)
     getAllSetListTracks()
       .then(res => {
        const filteredList = thisSetList(res)
-      console.log(filteredList)
       return filteredList
     })
       .then(res => setSetListTracks(res))
@@ -34,7 +31,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleEditSong, hand
 
   return (
     <>
-      <div>
+      <div className="card-container">
         <div className="card">
           <div className="card-content">
             <h3 className="card-setListTitle">

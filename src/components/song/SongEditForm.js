@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, useParams} from "react-router-dom";
 import { addSong } from "../../modules/SongsManager";
 import { updateSong, getSongById } from "../../modules/SongsManager";
+import './SongEditForm.css'
 
 
 export const SongEditForm = () => {
@@ -18,9 +19,8 @@ export const SongEditForm = () => {
     notes: '',
     runTime: '',
     userId: loggedInUser.id,
+    id: songId
   })
-
-
 
   const handleFieldChange = evt => {
     const stateToChange = { ...song }
@@ -54,13 +54,15 @@ export const SongEditForm = () => {
 
   useEffect(() => {
     getSongById(songId)
-    .then(setSong)
+    .then(song => 
+      setSong(song))
     setIsLoading(false)
+    console.log(song)
   }, [])
 
   return (
     <form className="trackForm">
-      <h2 className="trackForm__title">New Track</h2>
+      <h2 className="trackForm__title">Update Track</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="trackName">Track Name:</label>
@@ -85,7 +87,10 @@ export const SongEditForm = () => {
           <input type="text" id="runTime" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Run Time" value={song.runTime} />
         </div>
       </fieldset>
+      <div className="updateButtons">
+      <button type="button" onClick={() => navigate('/')}>Cancel</button>
       <button type="button" onClick={handleUpdateSong}>Save Track</button>
+      </div>
     </form>
   )
 }
