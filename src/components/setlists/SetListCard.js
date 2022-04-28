@@ -9,7 +9,6 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSong, ha
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
-  // const { setListId } = useParams()
 
   // Takes a set array as a parameter and returns all tracks related to current setlist by id
 
@@ -38,7 +37,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSong, ha
               {setList.title}
             </h3>
             <p>Notes: {setList.notes}</p>
-            {setListTracks.map(track => <SongCard track={track} key={track.id} handleDeleteSong={handleDeleteSong}/>)}
+            {setListTracks.map(track => <SongCard track={track} key={track.id} setList={setList} handleDeleteSetListTrack={handleDeleteSetListTrack}/>)}
           </div>
         </div>
         <div className="setListButtons">
