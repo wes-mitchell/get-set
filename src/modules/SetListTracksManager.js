@@ -21,8 +21,10 @@ export const addSetListTrack = (newSetListTrack) => {
   }).then(response => response.json())
 }
 
+// deletes a set list track by id
+
 export const deleteSetListTrack = (setListTrackId) => {
-  return fetch(`http://localhost:8088/setlists/${setListTrackId}`, {
+  return fetch(`http://localhost:8088/setListTracks/${setListTrackId}`, {
       method: "DELETE",
       headers: {
           "Content-type": "application/json"
@@ -32,7 +34,7 @@ export const deleteSetListTrack = (setListTrackId) => {
 
 // Get all tracks by related setlist
 
-// export const getSetListTracksByCurrentSetList = (currentSetListId) => { 
-//   return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}`)
-//   .then(res => res.json())
-//  }
+export const getSetListTracksByCurrentSetList = (currentSetListId) => { 
+  return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}&_expand=song`)
+  .then(res => res.json())
+ }

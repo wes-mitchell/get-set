@@ -6,6 +6,7 @@ import { getAllUsers } from '../../modules/UsersManager';
 import { deleteSong } from '../../modules/SongsManager';
 import { deleteSetList } from '../../modules/SetListManager';
 import { getAllSetListTracks, deleteSetListTrack } from '../../modules/SetListTracksManager';
+import { getAllSongs } from '../../modules/SongsManager';
 import './SetListList.css'
 
 export const SetListList = () => {
@@ -13,6 +14,7 @@ export const SetListList = () => {
   const [setLists, setSetLists] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const [users, setUsers] = useState([])
+  const [songs, setSongs] = useState([])
   const navigate = useNavigate()
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
 
@@ -37,15 +39,10 @@ export const SetListList = () => {
   const handleDeleteSong = (trackID) => {
     setIsLoading(true)
     deleteSong(trackID)
-      .then(setIsLoading(false))
+    .then(() => getAllSongs())
+    .then(res => setSongs(res))
+    setIsLoading(false)
   }
-
-  // Handles the edit track button when clicked
-
-  const handleEditSong = (songObj) => {
-
-  }
-
 
   // ======== get all users from API on component's first render to match with setListId ========
 
@@ -61,6 +58,11 @@ export const SetListList = () => {
     .then(setSetLists);
   }, []);
 
+  useEffect(() => {
+    getAllSongs()
+    .then(setSongs)
+  }, [])
+
 
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========
   return (
@@ -68,21 +70,6 @@ export const SetListList = () => {
       <div className="container-cards">
         {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong} handleDeleteSetList={handleDeleteSetList} /> : ''))}
       </div>
-      {/* <div className="setListButtons">
-        <button type="button" 
-          className="setListEdit"
-          onClick={() => { navigate("/setlist/edit") }}>
-          Edit
-        </button>
-        <button type="button" 
-          className="setListDelete"
-          onClick={handleDeleteSetList}>
-          Delete</button>
-        <button type="button" 
-          className="setListPractice"
-          onClick={() => navigate("/setlist/practice")}
-          >Practice</button>
-      </div> */}
     </>
   )
 }

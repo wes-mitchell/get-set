@@ -28,7 +28,6 @@ export const SetListForm = () => {
 
   const handleCheckChange = (evt) => {
     const newSongArr = [...songs]
-    console.log(newSongArr)
     newSongArr.find((songItem, index) => {
       if (songItem.id === parseInt(evt.target.id)) {
         songItem.checked = !songItem.checked
@@ -48,8 +47,10 @@ export const SetListForm = () => {
 
   const handleClickSaveSetList = (evt) => {
     evt.preventDefault()
+    setIsLoading(true)
+    const checkedSong = songs.find(song => song.checked)
 
-    if (setList.notes === '' || setList.title === '') {
+    if (setList.notes === '' || setList.title === '' || !checkedSong) {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
     } else {
@@ -78,11 +79,9 @@ export const SetListForm = () => {
       useEffect(() => {
         getAllSongs()
           .then(res => {
-            console.log(res);
             res.forEach(element => {
               element.checked = false
             })
-            console.log(res)
             return res
           }).then((res) => setSongs(res))
       }, [])

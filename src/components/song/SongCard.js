@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./SongCard.css"
 
-export const SongCard = ({ track }) => {
+export const SongCard = ({ track, handleDeleteSong }) => {
   const navigate = useNavigate()
   return (
     <>
@@ -13,7 +13,7 @@ export const SongCard = ({ track }) => {
       <div className="trackButtons">
         <button type="button" className="trackNotes">Notes</button>
         <button type="button" className="trackEdit" onClick={() => navigate(`/song/${track.song.id}/edit`)}>Edit</button>
-        <button type="button" className="trackDelete">Delete</button>
+        <button type="button" className="trackDelete" onClick={() => handleDeleteSong(track.song.id)}>Delete</button>
       </div>
     </>
   )
