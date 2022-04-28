@@ -15,12 +15,16 @@ export const SongList = () => {
     setIsLoading(true)
     deleteSong(id)
     setIsLoading(false)
-  }
+  } 
+
+  // sets all songs from user on initial render
 
   useEffect(() => {
   getAllSongs()
   .then(allSongs => setSongs(allSongs))
 }, [])
+
+// listens for is loading to trigger re render upon delete track gesture
 
 useEffect(() => {
   getAllSongs()
