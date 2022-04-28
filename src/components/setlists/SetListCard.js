@@ -5,7 +5,7 @@ import { getAllSetListTracks } from "../../modules/SetListTracksManager";
 import { SongCard } from "../song/SongCard";
 import "./SetListCard.css"
 
-export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSong, handleAddNotes }) => {
+export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListTrack, handleAddNotes }) => {
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()

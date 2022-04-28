@@ -34,7 +34,7 @@ export const SetListList = () => {
     setIsLoading(false)
   }
 
-  // Handles the delete track gesture when clicked
+  // Handles the delete track gesture when clicked from home page
 
   const handleDeleteSetListTrack = (setListTrackId) => {
       setIsLoading(true)
@@ -55,14 +55,14 @@ export const SetListList = () => {
   useEffect(() => {
     getAllSetLists()
     .then(setSetLists);
-  }, [isLoading]);
-
-// ===== get
-
+  }, []);
+  
+  // ===== get
+  
   useEffect(() => {
     getAllSetLists()
     .then(setSetLists);
-  }, []);
+  }, [isLoading]);
 
   // ========= get
 
