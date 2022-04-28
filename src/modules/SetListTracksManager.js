@@ -21,8 +21,10 @@ export const addSetListTrack = (newSetListTrack) => {
   }).then(response => response.json())
 }
 
+// deletes a set list track by id
+
 export const deleteSetListTrack = (setListTrackId) => {
-  return fetch(`http://localhost:8088/setlists/${setListTrackId}`, {
+  return fetch(`http://localhost:8088/setListTracks/${setListTrackId}`, {
       method: "DELETE",
       headers: {
           "Content-type": "application/json"

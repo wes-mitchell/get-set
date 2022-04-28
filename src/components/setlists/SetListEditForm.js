@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getSetListById } from "../../modules/SetListManager";
 import { updateSetList } from "../../modules/SetListManager";
 import { getAllSongs } from "../../modules/SongsManager";
-import { addSetListTrack } from "../../modules/SetListTracksManager";
+import { addSetListTrack, deleteSetListTrack } from "../../modules/SetListTracksManager";
 import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 
 export const SetListEditForm = () => {
@@ -61,6 +61,7 @@ export const SetListEditForm = () => {
 
     const checkedSong = songs.find(song => song.checked)
 
+
     if (editedSetList.notes === '' || editedSetList.title === '' || !checkedSong) {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
@@ -70,17 +71,19 @@ export const SetListEditForm = () => {
       Promise.all([updateSetList(editedSetList)
         .then(setListObj => {
           songs.forEach(song => {
-            if (song.checked === true && currentSetListTracks.find(setTrack => setTrack.id === song.id)) {
+              if (song.checked === true && currentSetListTracks.find(setTrack => setTrack.songId === song.id)) {
+                const uncheckedSetListTrack = currentSetListTracks.find(setTrack => setTrack.songId === song.id)
+                deleteSetListTrack(uncheckedSetListTrack.id)
+            } else if (song.checked === true && !currentSetListTracks.find(setTrack => setTrack.songId === song.id)) {
               let newSetListTrack = {
                 setListId: setListObj.id,
                 songId: song.id
               }
               addSetListTrack(newSetListTrack)
-                .then(() => navigate('/'))
             }
           }
           )
-        })
+        }).then(() => navigate('/'))
       ])
     }
   }
@@ -94,6 +97,9 @@ export const SetListEditForm = () => {
     getSetListTracksByCurrentSetList(setListId)
     .then((currentSetListTracksRes) => {
       getAllSongs().then(allSongs => {
+        allSongs.forEach(song => {
+          song.checked = false
+        })
         setSongs(allSongs)
         setCurrentSetListTracks(currentSetListTracksRes)
       })})

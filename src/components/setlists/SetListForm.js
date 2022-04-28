@@ -28,7 +28,6 @@ export const SetListForm = () => {
 
   const handleCheckChange = (evt) => {
     const newSongArr = [...songs]
-    console.log(newSongArr)
     newSongArr.find((songItem, index) => {
       if (songItem.id === parseInt(evt.target.id)) {
         songItem.checked = !songItem.checked
@@ -80,11 +79,9 @@ export const SetListForm = () => {
       useEffect(() => {
         getAllSongs()
           .then(res => {
-            console.log(res);
             res.forEach(element => {
               element.checked = false
             })
-            console.log(res)
             return res
           }).then((res) => setSongs(res))
       }, [])
