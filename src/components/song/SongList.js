@@ -8,6 +8,7 @@ import './SongList.css'
 export const SongList = () => { 
   const [songs, setSongs] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const loggedInUser = JSON.parse(sessionStorage.getSet_user)
 
   // handles delete song gesture by deleting the song from the database
 
@@ -34,7 +35,7 @@ useEffect(() => {
   return (
     <>
     <div className="songListContainer">
-        {songs.map(song => <SongListCard key={song.id} song={song} handleDeleteSong={handleDeleteSong} /> )}
+        {songs.map(song => song.userId === loggedInUser.id ? <SongListCard key={song.id} song={song} handleDeleteSong={handleDeleteSong} /> : '' )}
     </div>
     </>
       )
