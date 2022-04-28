@@ -48,6 +48,7 @@ export const SetListForm = () => {
 
   const handleClickSaveSetList = (evt) => {
     evt.preventDefault()
+    setIsLoading(true)
     const checkedSong = songs.find(song => song.checked)
 
     if (setList.notes === '' || setList.title === '' || !checkedSong) {

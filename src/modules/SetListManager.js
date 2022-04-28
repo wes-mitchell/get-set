@@ -32,6 +32,18 @@ export const addSetList = (newSetList) => {
   }).then(response => response.json())
 }
 
+// Updates an existing set list by id with PUT method
+
+export const updateSetList = (setList) => { 
+  return fetch(`${remoteURL}/setLists/${setList.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(setList)
+  }).then(response => response.json())
+ }
+
 // Gets all setlists for every user
 
 export const getSetListById = (setListId) => { 

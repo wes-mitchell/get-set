@@ -5,9 +5,11 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { SetListList } from "./setlists/SetListList"
 import { SetListForm } from "./setlists/SetListForm"
+import { SetListEditForm } from "./setlists/SetListEditForm"
 import { SongForm } from "./song/SongForm"
 import { SongEditForm } from "./song/SongEditForm"
 import { SetListPracticeView } from "./setlists/SetListPracticeView"
+
 
 
 
@@ -27,7 +29,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
         <Route path="/" element={<PrivateOutlet />} >
 
-        {/* Render the set lists on user login when http://localhost:3000/ */}
+        {/* Render all user set lists on login when http://localhost:3000/ */}
         <Route path="/" element={<SetListList />} />
 
 
@@ -38,14 +40,15 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         <Route path="/setlists" element={''} />
 
         {/* Render edit set list view at http://localhost:3000/setlist/edit*/}
-        <Route path="/setlist/edit" element={''} />
+        <Route path="/setlist/:setListId/edit" element={<SetListEditForm />} />
+
+
+        {/* Render practice view at http://localhost:3000/setlist/practice*/}
+        <Route path="/setlist/:setListId/practice" element={<SetListPracticeView />} />
 
         {/* Render create track view at http://localhost:3000/song/create*/}
         <Route path="/song/create" element={<SongForm /> } />
         <Route path="/song/:songId/edit" element={<SongEditForm />} />
-
-        {/* Render practice view at http://localhost:3000/setlist/practice*/}
-        <Route path="/setlist/:setListId/practice" element={<SetListPracticeView />} />
         </Route>
 
         {/* End of all Private Outlet Paths */}

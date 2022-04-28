@@ -5,7 +5,7 @@ import { getAllSetListTracks } from "../../modules/SetListTracksManager";
 import { SongCard } from "../song/SongCard";
 import "./SetListCard.css"
 
-export const SetListCard = ({ setList, handleDeleteSetList, handleEditSong, handleAddNotes }) => {
+export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSong, handleAddNotes }) => {
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
@@ -38,13 +38,13 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleEditSong, hand
               {setList.title}
             </h3>
             <p>Notes: {setList.notes}</p>
-            {setListTracks.map(track => <SongCard track={track} key={track.id} />)}
+            {setListTracks.map(track => <SongCard track={track} key={track.id} handleDeleteSong={handleDeleteSong}/>)}
           </div>
         </div>
         <div className="setListButtons">
           <button type="button"
             className="setListEdit"
-            onClick={() => { navigate("/setlist/edit") }}>
+            onClick={() => { navigate(`/setlist/${setList.id}/edit`) }}>
             Edit
           </button>
           <button type="button"

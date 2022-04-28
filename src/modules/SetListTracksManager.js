@@ -32,7 +32,7 @@ export const deleteSetListTrack = (setListTrackId) => {
 
 // Get all tracks by related setlist
 
-// export const getSetListTracksByCurrentSetList = (currentSetListId) => { 
-//   return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}`)
-//   .then(res => res.json())
-//  }
+export const getSetListTracksByCurrentSetList = (currentSetListId) => { 
+  return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}&_expand=song`)
+  .then(res => res.json())
+ }
