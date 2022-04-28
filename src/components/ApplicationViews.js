@@ -9,6 +9,7 @@ import { SetListEditForm } from "./setlists/SetListEditForm"
 import { SongForm } from "./song/SongForm"
 import { SongEditForm } from "./song/SongEditForm"
 import { SetListPracticeView } from "./setlists/SetListPracticeView"
+import { SongList } from "./song/SongList"
 
 
 
@@ -36,8 +37,6 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         {/* Render the create setlist form http://localhost:3000/setlist/create */}
         <Route path="/setlist/create" element={<SetListForm /> } />
 
-        {/* Render all user setlists on http://localhost:3000/setlist */}
-        <Route path="/setlists" element={''} />
 
         {/* Render edit set list view at http://localhost:3000/setlist/edit*/}
         <Route path="/setlist/:setListId/edit" element={<SetListEditForm />} />
@@ -49,6 +48,8 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         {/* Render create track view at http://localhost:3000/song/create*/}
         <Route path="/song/create" element={<SongForm /> } />
         <Route path="/song/:songId/edit" element={<SongEditForm />} />
+        <Route path="/songs" element={<SongList />} />
+
         </Route>
 
         {/* End of all Private Outlet Paths */}

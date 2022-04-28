@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css"
 import { getAllSetLists } from "../../modules/SetListManager";
+import { getAllSongs } from "../../modules/SongsManager";
+import { SongList } from "../song/SongList";
 
 export const NavBar = ({ clearUser, isAuthenticated }) => {
     const navigate = useNavigate()
@@ -26,6 +28,9 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
                 </li>}
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/song/create"> Add New Track </Link>
+                </li>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/songs" onClick={getAllSongs}> See All Track </Link>
                 </li>
                 {isAuthenticated
                     ? <li className="navbar__item">

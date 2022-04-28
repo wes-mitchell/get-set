@@ -124,14 +124,12 @@ return (
       <div className="form-group">
         {songs.map((song) => song.userId === loggedInUser.id ?
           <div key={song.id}>
-
             <input type="checkbox" id={song.id} value={song.name}
               defaultChecked={currentSetListTracks.find(setListTrack => 
                 setListTrack.songId === song.id
               )}
               onChange={handleCheckChange} key={song.id} />
             <label htmlFor="trackName">{song.name}</label>
-
           </div> 
           : ''
         )}

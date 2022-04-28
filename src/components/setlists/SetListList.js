@@ -5,7 +5,7 @@ import { getAllSetLists } from '../../modules/SetListManager';
 import { getAllUsers } from '../../modules/UsersManager';
 import { deleteSong } from '../../modules/SongsManager';
 import { deleteSetList } from '../../modules/SetListManager';
-import { getAllSetListTracks, deleteSetListTrack } from '../../modules/SetListTracksManager';
+import { getAllSetListTracks, deleteSetListTrack, getSetListTracksByCurrentSetList } from '../../modules/SetListTracksManager';
 import { getAllSongs } from '../../modules/SongsManager';
 import './SetListList.css'
 
@@ -18,7 +18,7 @@ export const SetListList = () => {
   const navigate = useNavigate()
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
 
-  // Handles the delete setlist gesture when clicked
+  // Handles the delete setlist gesture when clicked by passing set list id as parameter
 
   const handleDeleteSetList = id => {
     setIsLoading(true)
@@ -34,15 +34,14 @@ export const SetListList = () => {
     setIsLoading(false)
   }
 
-  // Handles the delete track gesture when clicked
+  // Handles the delete track gesture when clicked from home page
 
-  const handleDeleteSong = (trackID) => {
-    setIsLoading(true)
-    deleteSong(trackID)
-    .then(() => getAllSongs())
-    .then(res => setSongs(res))
-    setIsLoading(false)
-  }
+  const handleDeleteSetListTrack = (setListTrackId) => {
+      setIsLoading(true)
+      deleteSetListTrack(setListTrackId)
+      setIsLoading(false)
+    }
+
 
   // ======== get all users from API on component's first render to match with setListId ========
 
@@ -57,6 +56,15 @@ export const SetListList = () => {
     getAllSetLists()
     .then(setSetLists);
   }, []);
+  
+  // ===== get
+  
+  useEffect(() => {
+    getAllSetLists()
+    .then(setSetLists);
+  }, [isLoading]);
+
+  // ========= get
 
   useEffect(() => {
     getAllSongs()
@@ -68,7 +76,7 @@ export const SetListList = () => {
   return (
     <>
       <div className="container-cards">
-        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSong={handleDeleteSong} handleDeleteSetList={handleDeleteSetList} /> : ''))}
+        {setLists.map(setList => (setList.userId === loggedInUser.id ? <SetListCard setList={setList} key={setList.id} handleDeleteSetListTrack={handleDeleteSetListTrack} handleDeleteSetList={handleDeleteSetList} /> : ''))}
       </div>
     </>
   )

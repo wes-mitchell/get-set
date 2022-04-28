@@ -9,6 +9,13 @@ export const getAllSetListTracks = () => {
   .then(res => res.json())
 }
 
+// Gets set list track by ID
+
+export const getSetListTrackById = (trackId) => { 
+  return fetch(`${remoteURL}/setListTracks/${trackId}`)
+  .then(res => res.json())
+}
+
 // Adds new set list track to database
 
 export const addSetListTrack = (newSetListTrack) => { 
