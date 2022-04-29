@@ -57,7 +57,6 @@ export const SongEditForm = () => {
     .then(song => 
       setSong(song))
     setIsLoading(false)
-    console.log(song)
   }, [])
 
   return (
@@ -71,18 +70,18 @@ export const SongEditForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="bpm">BPM: </label>
-          <input type="text" id="bpm" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={song.bpm} />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
           <label htmlFor="notes">Notes:</label>
           <input type="text" id="notes" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Notes for track" value={song.notes} />
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
+        <div className="form-group-bpm">
+          <label htmlFor="bpm">BPM: </label>
+          <input type="text" id="bpm" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="BPM Number Only" value={song.bpm} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group-runTime">
           <label htmlFor="runTime">Run Time: </label>
           <input type="text" id="runTime" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Run Time" value={song.runTime} />
         </div>
