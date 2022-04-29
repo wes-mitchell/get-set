@@ -13,21 +13,26 @@ export const SongForm = () => {
 
   const [song, setSong] = useState({
     name: '',
-    bpm: parseInt(''),
+    bpm: parseInt(0),
     notes: '',
     runTime: '',
     userId: loggedInUser.id,
   })
 
+  const integerCheck = (evt) => {
+    const newSong = { ...song }
+    newSong.bpm = parseInt(evt.target.value)
+    setSong(newSong)
+  }
 
 
   const handleControlledInputChange = evt => {
     const newSong = { ...song }
     let selectedVal = evt.target.value
+    newSong[evt.target.id] = selectedVal
     if (evt.target.id.includes('bpm')) {
       selectedVal = parseInt(selectedVal)
     }
-    newSong[evt.target.id] = selectedVal
     setSong(newSong)
   }
 
@@ -64,7 +69,7 @@ export const SongForm = () => {
       <fieldset>
         <div className="form-group-bpm">
           <label htmlFor="bpm">BPM: </label>
-          <input type="number" id="bpm" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="BPM" value={parseInt(song.bpm)} />
+          <input type="number" id="bpm" onChange={integerCheck} required autoFocus className="form-control" placeholder="BPM"  />
         </div>
       </fieldset>
       <fieldset>

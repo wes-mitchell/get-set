@@ -41,9 +41,9 @@ export const SetListList = () => {
   // Handles the delete track gesture when clicked from home page
 
   const handleDeleteSetListTrack = (setListTrackId) => {
-      setIsLoading(true)
       deleteSetListTrack(setListTrackId)
-      setIsLoading(false)
+      .then(() => getAllSetLists())
+      .then(res => setSetLists(res))
     }
 
     // handles notes gesture click by opening dialog box w/ notes for song upon button click
@@ -70,15 +70,8 @@ export const SetListList = () => {
     getAllSetLists()
     .then(setSetLists);
   }, []);
-  
-  // ===== listens for is loading change to update set list view if track is deleted
-  
-  useEffect(() => {
-    getAllSetLists()
-    .then(setSetLists);
-  }, [isLoading]);
 
-  // ========= get
+  // ========= gets all songs and sets initial state of songs
 
   useEffect(() => {
     getAllSongs()
@@ -87,6 +80,7 @@ export const SetListList = () => {
 
 
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========
+  
   return (
     <>
       <dialog className="dialog" id={"dialogBox"} open={dialogVisible}>
