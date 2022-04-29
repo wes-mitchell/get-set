@@ -7,11 +7,6 @@
   color: black;
 }
 
-dialog {
-  background-color: black;
-  z-index: 10;
-}
-
 .trackName {
   color: black
 }
@@ -19,3 +14,13 @@ dialog {
 .trackBPM {
   color: black
 }
+
+dialog {
+    text-align:center;
+    position: fixed;
+    bottom: 50%;
+    z-index: 50;
+    width: 120px;
+    background-color: black;
+    border:1px solid white;
+  }
