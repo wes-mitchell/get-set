@@ -5,3 +5,9 @@
 .metronome {
   color: white;
 }
+
+dialog {
+  background-color: black;
+  color: white;
+  z-index: 5;
+}

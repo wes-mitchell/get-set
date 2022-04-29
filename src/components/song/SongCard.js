@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./SongCard.css"
 
-export const SongCard = ({ track, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture }) => {
+export const SongCard = ({ track, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture, handleNoteClickPracticeView }) => {
   const navigate = useNavigate()
   return (
     <>

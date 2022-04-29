@@ -5,7 +5,7 @@ import { getAllSetListTracks } from "../../modules/SetListTracksManager";
 import { SongCard } from "../song/SongCard";
 import "./SetListCard.css"
 
-export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture }) => {
+export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture, handleNoteClickPracticeView }) => {
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             <h3 className="card-setListTitle">
               {setList.title}
             </h3>
-            <p>Notes: {setList.notes}</p>
+            <p className="setListNotes">Notes: {setList.notes}</p>
             {setListTracks.map(track => <SongCard track={track} key={track.id} setList={setList} handleDeleteSetListTrack={handleDeleteSetListTrack} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture} />)}
           </div>
         </div>

@@ -4,11 +4,19 @@ body {
 
 
 
-div .songListCard {
+.songListCard {
   border: 1px solid white;
   display: flex;
   width: 375px;
   justify-content: space-between;
+}
+
+.songListTrackName {
+  color: white
+}
+
+.songListTrackBPM {
+  color: white;
 }
 
 .songListContainer {

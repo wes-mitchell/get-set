@@ -5,8 +5,8 @@ export const SongListCard = ({ song, handleDeleteSong, handleNoteClick, setDialo
   return (
     <>
       <div className="songListCard">
-          <p className="trackName">{song.name}</p>
-          <p className="trackBPM">{song.bpm} BPM</p>
+          <p className="songListTrackName">{song.name}</p>
+          <p className="songListTrackBPM">{song.bpm} BPM</p>
       </div>
       <div className="trackButtons">
         <button type="button" className="trackNotes" onClick={() => (handleNoteClick(song),setDialogVisible(true))}>Notes</button>

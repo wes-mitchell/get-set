@@ -46,13 +46,14 @@ export const SetListList = () => {
       setIsLoading(false)
     }
 
-    // handles notes gesture click
+    // handles notes gesture click by opening dialog box w/ notes for song upon button click
 
     const handleNoteGesture = (setListTrack) => {
       setIsLoading(true)
       getSongById(setListTrack.song.id)
       .then(song => setSong(song))
       setIsLoading(false)
+      console.log("list view note clicked");
     }
 
 
@@ -70,7 +71,7 @@ export const SetListList = () => {
     .then(setSetLists);
   }, []);
   
-  // ===== get
+  // ===== listens for is loading change to update set list view if track is deleted
   
   useEffect(() => {
     getAllSetLists()
@@ -88,7 +89,7 @@ export const SetListList = () => {
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========
   return (
     <>
-      <dialog className="dialog" id={''} open={dialogVisible}>
+      <dialog className="dialog" id={"dialogBox"} open={dialogVisible}>
         <NoteCard song={song} />
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
       </dialog>
