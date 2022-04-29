@@ -87,6 +87,7 @@ export const SetListForm = () => {
       }, [])
 
       return (
+        <div className="setListFormContainer">
         <form className="setListForm">
           <h2 className="setListForm__title">New Setlist</h2>
           <fieldset>
@@ -113,5 +114,6 @@ export const SetListForm = () => {
           </fieldset>
           <button type="button" onClick={handleClickSaveSetList}>Save Setlist</button>
         </form>
+        </div>
       )
     }

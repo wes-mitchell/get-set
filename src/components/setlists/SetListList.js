@@ -53,7 +53,6 @@ export const SetListList = () => {
       getSongById(setListTrack.song.id)
       .then(song => setSong(song))
       setIsLoading(false)
-      console.log("list view note clicked");
     }
 
 

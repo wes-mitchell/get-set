@@ -18,6 +18,8 @@ export const SongList = () => {
   const handleDeleteSong = id => {
     setIsLoading(true)
     deleteSong(id)
+    .then(() => getAllSongs())
+    .then(res => setSongs(res))
     setIsLoading(false)
   } 
 
