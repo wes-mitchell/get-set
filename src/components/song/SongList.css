@@ -16,7 +16,11 @@ body {
 }
 
 .songListTrackBPM {
-  color: white;
+  border-left: solid 1px white;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 63px;
+  text-align: left;
 }
 
 .songListContainer {
