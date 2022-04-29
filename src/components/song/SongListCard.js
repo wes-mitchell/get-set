@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export const SongListCard = ({ song, handleDeleteSong }) => {
+export const SongListCard = ({ song, handleDeleteSong, handleNoteClick, setDialogVisible }) => {
   const navigate = useNavigate()
   return (
     <>
@@ -9,7 +9,7 @@ export const SongListCard = ({ song, handleDeleteSong }) => {
           <p className="trackBPM">{song.bpm} BPM</p>
       </div>
       <div className="trackButtons">
-        <button type="button" className="trackNotes">Notes</button>
+        <button type="button" className="trackNotes" onClick={() => (handleNoteClick(song),setDialogVisible(true))}>Notes</button>
         <button type="button" className="trackEdit" onClick={() => navigate(`/song/${song.id}/edit`)}>Edit</button>
         <button type="button" className="trackDelete" onClick={() => handleDeleteSong(song.id)}>Delete</button>
       </div>

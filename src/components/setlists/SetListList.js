@@ -89,7 +89,7 @@ export const SetListList = () => {
   return (
     <>
       <dialog className="dialog" id={''} open={dialogVisible}>
-        <NoteCard song={song}/>
+        <NoteCard song={song} />
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
       </dialog>
       <div className="container-cards">

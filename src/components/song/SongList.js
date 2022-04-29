@@ -1,14 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getAllSongs } from "../../modules/SongsManager";
+import { getAllSongs, getSongById } from "../../modules/SongsManager";
 import { SongListCard } from "./SongListCard";
 import { deleteSong } from "../../modules/SongsManager";
+import { NoteCard } from "../notes/NoteCard";
 import './SongList.css'
 
 export const SongList = () => { 
   const [songs, setSongs] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
+  const [song, setSong] = useState([])
+  const [dialogVisible, setDialogVisible] = useState(false)
 
   // handles delete song gesture by deleting the song from the database
 
@@ -17,6 +20,15 @@ export const SongList = () => {
     deleteSong(id)
     setIsLoading(false)
   } 
+
+  // handle note gesture from song list view
+
+  const handleNoteClick = (song) => { 
+    setIsLoading(true)
+    getSongById(song.id)
+    .then(song => setSong(song))
+    setIsLoading(false)
+   }
 
   // sets all songs from user on initial render
 
@@ -34,8 +46,12 @@ useEffect(() => {
 
   return (
     <>
+      <dialog className="dialog" id={''} open={dialogVisible}>
+        <NoteCard song={song} />
+        <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
+      </dialog>
     <div className="songListContainer">
-        {songs.map(song => song.userId === loggedInUser.id ? <SongListCard key={song.id} song={song} handleDeleteSong={handleDeleteSong} /> : '' )}
+        {songs.map(song => song.userId === loggedInUser.id ? <SongListCard key={song.id} song={song} handleDeleteSong={handleDeleteSong} handleNoteClick={handleNoteClick} setDialogVisible={setDialogVisible} /> : '' )}
     </div>
     </>
       )
