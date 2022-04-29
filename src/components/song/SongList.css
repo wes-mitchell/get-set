@@ -2,17 +2,17 @@ body {
   color: white;
 }
 
-
-
 .songListCard {
   border: 1px solid white;
   display: flex;
   width: 375px;
   justify-content: space-between;
+  border-radius: 10px;
 }
 
 .songListTrackName {
-  color: white
+  color: white;
+  margin-left: 5px;
 }
 
 .songListTrackBPM {
@@ -29,4 +29,8 @@ body {
 
 .trackButtons {
   width: 377px;
+}
+
+button {
+  border-radius: 7px;
 }

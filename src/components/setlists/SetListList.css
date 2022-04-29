@@ -5,10 +5,15 @@
   justify-content: space-evenly;
   align-items: stretch;
   color: black;
+  gap: 15px;
 }
 
 .trackName {
   color: black
+}
+
+.trackNotes {
+  padding: 0px 10px 0px 3px;
 }
 
 .trackBPM {

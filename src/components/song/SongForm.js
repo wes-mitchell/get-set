@@ -55,13 +55,13 @@ export const SongForm = () => {
     <form className="trackForm">
       <h2 className="trackForm__title">Add A Track</h2>
       <fieldset>
-        <div className="form-group">
+        <div className="songFormTrackName">
           <label htmlFor="trackName">Track Name:</label>
           <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Track Name" value={song.name} />
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
+        <div className="songFormTrackNotes">
           <label htmlFor="notes">Notes:</label>
           <input type="text" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Notes for track" value={song.notes} />
         </div>
