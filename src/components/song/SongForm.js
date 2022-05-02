@@ -52,6 +52,7 @@ export const SongForm = () => {
   }
 
   return (
+    <div className="songFormContainer">
     <form className="trackForm">
       <h2 className="trackForm__title">Add A Track</h2>
       <fieldset>
@@ -78,7 +79,8 @@ export const SongForm = () => {
           <input type="text" id="runTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="X:XX" value={song.runTime} />
         </div>
       </fieldset>
-      <button type="button" onClick={handleClickSaveSong}>Save Track</button>
+      <button type="button" onClick={handleClickSaveSong} className="saveTrackButton">Save Track</button>
     </form>
+    </div>
   )
 }

@@ -1,24 +1,27 @@
 .navbar {
-  /* display: flex;
+  display: inline-flex;
+  align-items: center;
   flex-wrap: nowrap;
-  margin-left: 0px; */
+  justify-content: space-between;
+  margin-left: 0px;
   background-color: black;
-  margin-top: 0px;
-  padding-left: 5px;
+    margin-top: 0px;
+    padding-left: 5px;
+    /* position: fixed; */
+    width: 100%;
+    z-index: 5;
+    font-family: 'Varela', sans-serif;
 }
 
 .navbar__item {
-  flex-basis: 20%;
   list-style-type: none;
 }
 
 .navbar__link {
-  margin-left: 15px;
   /* border: #B6B173 solid 1px; */
-  padding: 5px;
-  color: #B6B173;
-  border-radius: 7px;
-  text-decoration: none;
+  color: #B6B173; 
+  /* border-radius: 7px; */
+  text-decoration: none; 
 }
 
 img {
@@ -29,4 +32,8 @@ img {
 li {
   display: table-cell;
   vertical-align: middle;
+}
+
+#navLogout {
+  margin-right: 15px;
 }

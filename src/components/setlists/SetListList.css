@@ -12,10 +12,6 @@
   color: black
 }
 
-.trackNotes {
-  padding: 0px 10px 0px 3px;
-}
-
 .trackBPM {
   color: black
 }
@@ -28,4 +24,5 @@ dialog {
     width: 120px;
     background-color: black;
     border:1px solid white;
+    font-family: 'Varela', sans-serif;
   }

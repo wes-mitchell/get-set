@@ -33,7 +33,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
                     <Link className="navbar__link" to="/songs" onClick={getAllSongs}> See All Tracks </Link>
                 </li>
                 {isAuthenticated
-                    ? <li className="navbar__item">
+                    ? <li className="navbar__item" id="navLogout">
                         <Link to="/" className="navbar__link" onClick={handleLogout}> Logout </Link>
                     </li>
                     : <li className="navbar__item">

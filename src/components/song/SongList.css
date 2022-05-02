@@ -5,9 +5,10 @@ body {
 .songListCard {
   border: 1px solid white;
   display: flex;
-  width: 375px;
+  width: 350px;
   justify-content: space-between;
   border-radius: 10px;
+  font-family: 'Varela', sans-serif;
 }
 
 .songListTrackName {
@@ -19,18 +20,27 @@ body {
   border-left: solid 1px white;
   padding-left: 10px;
   padding-right: 10px;
-  width: 63px;
+  width: 75px;
   text-align: left;
+  align-self: center;
 }
 
 .songListContainer {
   margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
 }
 
-.trackButtons {
+.songListTrackButtons {
   width: 377px;
 }
 
+
 button {
   border-radius: 7px;
+  margin: 0px 3px 3px 0px;
 }

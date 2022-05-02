@@ -9,9 +9,16 @@
   padding: 5px;
   max-width: 420px;
   border-radius: 10px;
+  font-family: 'Varela', sans-serif;
+}
+
+.setListFormContainer {
+  display: grid;
+  justify-content: center;
 }
 
 .setListForm__title {
   margin-top: 0px;
   padding-top: 0px;
+  text-align: center;
 }

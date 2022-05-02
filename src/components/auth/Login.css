@@ -20,6 +20,11 @@ fieldset {
   width: 25em;
 }
 
+.form--login > fieldset > input[type="email"] {
+  margin-left: 9.25em;
+  text-align: center;
+}
+
 .label--login {
   width: 8rem;
   display: inline-block;
@@ -27,7 +32,6 @@ fieldset {
 
 .form-control {
   display: block;
-  width: 94%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -48,13 +52,15 @@ fieldset {
 
 .form--login {
   background-position-x: right;
-  /* background-image: url(logo.png); */
+  background-image: url("./mic2.jpg");
+  background-size: cover;
   z-index: 1;
   min-height: 25rem;
   min-width: 45rem;
   background-color: hsla(0,0%,100%,0.40);
-  background-blend-mode: overlay;
+  background-blend-mode: cover;
   background-repeat: no-repeat;
+  text-align: center;
 }
 
 .button--close {
@@ -65,5 +71,9 @@ fieldset {
 .dialog {
   min-width: 15rem;
   min-height: 5rem;
+}
+
+a {
+  color: white;
 }
 

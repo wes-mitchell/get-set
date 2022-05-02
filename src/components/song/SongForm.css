@@ -7,9 +7,11 @@
   padding: 5px;
   max-width: 420px;
   border-radius: 10px;
+  font-family: 'Varela', sans-serif;
 }
 .trackForm__title {
   margin-top: 0px;
+  text-align: center;
 }
 
 .form-group {
@@ -30,6 +32,24 @@
   width: 75px;
 }
 
-button {
-  align-self: flex-end;
+.songFormContainer {
+  display: flex;
+  justify-content: center;
 }
+
+#bpm {
+  width: 50px;
+}
+
+#runTime {
+  width: 50px;
+}
+
+.saveTrackButton {
+  align-self: flex-start;
+}
+
+.saveTrackButton:hover {
+  cursor: pointer;
+}
+
