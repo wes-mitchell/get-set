@@ -22,3 +22,8 @@
   padding-top: 0px;
   text-align: center;
 }
+
+.setListEditButtons {
+  display: flex;
+  justify-content: space-between;
+}

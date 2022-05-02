@@ -44,3 +44,7 @@ button {
   border-radius: 7px;
   margin: 0px 3px 3px 0px;
 }
+
+.songListCardContainer {
+  margin: 10px 5px;
+}

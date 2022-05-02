@@ -1,6 +1,6 @@
 .updateButtons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .trackForm {
@@ -37,4 +37,12 @@
 
 button {
   align-self: flex-end;
+}
+
+#bpm {
+  width: 50px;
+}
+
+#runTime {
+  width: 50px;
 }
