@@ -20,3 +20,15 @@ div .trackCard {
   /* color: white; */
 }
 
+.songListTrackButtons {
+  display: none;
+}
+
+
+.songListCard:hover + .songListTrackButtons {
+  display: block;
+}
+
+.songListTrackButtons:hover {
+  display: block;
+}

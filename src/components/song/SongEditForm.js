@@ -60,16 +60,17 @@ export const SongEditForm = () => {
   }, [])
 
   return (
+    <div className="songFormContainer">
     <form className="trackForm">
       <h2 className="trackForm__title">Update Track</h2>
       <fieldset>
-        <div className="form-group">
+        <div className="form-group-track">
           <label htmlFor="trackName">Track Name:</label>
           <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Track Name" value={song.name} />
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
+        <div className="form-group-notes">
           <label htmlFor="notes">Notes:</label>
           <input type="text" id="notes" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Notes for track" value={song.notes} />
         </div>
@@ -91,5 +92,6 @@ export const SongEditForm = () => {
       <button type="button" onClick={handleUpdateSong}>Save Track</button>
       </div>
     </form>
+    </div>
   )
 }

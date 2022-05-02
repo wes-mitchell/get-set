@@ -33,9 +33,9 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
       <div className="card-container">
         <div className="card">
           <div className="card-content">
-            <h3 className="card-setListTitle">
+            <div className="card-setListTitle">
               {setList.title}
-            </h3>
+            </div>
             <p className="setListNotes">{setList.notes}</p>
             {setListTracks.map(track => <SongCard track={track} key={track.id} setList={setList} handleDeleteSetListTrack={handleDeleteSetListTrack} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture} />)}
           </div>

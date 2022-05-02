@@ -37,7 +37,9 @@ export const SetListPracticeView = ({}) => {
         <NoteCard song={song} />
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
     </dialog>
+    <div className="practiceViewContainer">
     <SetListCard setList={setList} handleNoteGesture={handleNoteGesture} setDialogVisible={setDialogVisible}/>
+    </div>
     <p className="metronome">Metronome goes here as stretch Goal</p>
     </>
   )

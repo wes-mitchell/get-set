@@ -13,3 +13,8 @@ dialog {
   z-index: 5;
   font-family: 'Varela', sans-serif;
 }
+
+.practiceViewContainer {
+  display: flex;
+  justify-content: center;
+}

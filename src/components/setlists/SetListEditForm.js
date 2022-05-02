@@ -106,6 +106,7 @@ export const SetListEditForm = () => {
   }, [])
 
 return (
+  <div className="setListFormContainer">
   <form className="setListForm">
     <h2 className="setListForm__title">Update Setlist</h2>
     <fieldset>
@@ -135,8 +136,11 @@ return (
         )}
       </div>
     </fieldset>
+    <div className="setListEditButtons">
     <button type="button" onClick={() => navigate('/')}>Cancel</button>
     <button type="button" onClick={handleClickSaveSetList}>Update Setlist</button>
+    </div>
   </form>
+  </div>
 )
 }
