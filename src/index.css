@@ -7,8 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #08415C; */
   /* background-color: #503D42; */
-  background-color: #30343F;
-  /* color: black */
+  /* background-color: #30343F; */
+  background: rgb(54,48,63);
+  background: linear-gradient(90deg, rgba(54,48,63,0.8267682072829132) 47%, rgba(110,164,191,0.7875525210084033) 100%);
+  font-family: 'Permanent Marker', cursive;
 }
 
 input::-webkit-outer-spin-button,
@@ -18,6 +20,7 @@ input::-webkit-inner-spin-button {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+    font-family: 'Permanent Marker', cursive;
 }

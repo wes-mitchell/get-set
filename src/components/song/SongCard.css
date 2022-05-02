@@ -3,6 +3,7 @@ div .trackCard {
   display: flex;
   width: 375px;
   justify-content: space-between;
+  border-radius: 5px;
 }
 
 .trackName {
@@ -14,12 +15,8 @@ div .trackCard {
   border-left: solid 1px black;
   padding-left: 10px;
   padding-right: 10px;
-  width: 63px;
+  width: 75px;
   text-align: left;
   /* color: white; */
-}
-
-.trackButtons {
-  margin: 1px 10px 3px 0px;
 }
 

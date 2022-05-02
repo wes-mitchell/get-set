@@ -4,10 +4,12 @@
 
 .metronome {
   color: white;
+  text-align: center;
 }
 
 dialog {
   background-color: black;
   color: white;
   z-index: 5;
+  font-family: 'Varela', sans-serif;
 }

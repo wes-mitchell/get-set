@@ -11,17 +11,22 @@
 .card-setListTitle {
   color: black;
   margin-top: 0px;
+  text-align: center;
 }
 
 .setListButtons {
-  text-align: right;
-  margin-right: 10px;
+  margin-left: 9.5px;
 }
 
 .card-container {
-  width:fit-content;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .setListNotes {
-  color: black
+  color: black;
+  text-align: center;
 }
