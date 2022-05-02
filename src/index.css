@@ -9,7 +9,7 @@ body {
   /* background-color: #503D42; */
   /* background-color: #30343F; */
   background: rgb(54,48,63);
-  background: linear-gradient(90deg, rgba(54,48,63,0.8267682072829132) 47%, rgba(110,164,191,0.7875525210084033) 100%);
+  background: radial-gradient(circle, rgba(54,48,63,0.9556197478991597) 0%, rgba(110,164,191,1) 95%);
   font-family: 'Permanent Marker', cursive;
   /* font-family: 'Nanum Pen Script', cursive; */
 }
