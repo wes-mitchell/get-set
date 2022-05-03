@@ -8,7 +8,8 @@ div .trackCard {
 
 .trackName {
   padding: 0px 10px 0px 3px;
-  /* color: white; */
+  font-size: 20px;
+  font-weight: 550;
 }
 
 .trackBPM {
@@ -17,6 +18,8 @@ div .trackCard {
   padding-right: 10px;
   width: 75px;
   text-align: left;
+  font-size: 20px;
+  font-weight: 550;
   /* color: white; */
 }
 
@@ -31,4 +34,8 @@ div .trackCard {
 
 .songListTrackButtons:hover {
   display: block;
+}
+
+.trackButtons {
+  margin-top: 3px;
 }

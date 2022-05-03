@@ -10,8 +10,9 @@
 
 .card-setListTitle {
   color: black;
-  margin-top: 0px;
+  margin: 0px;
   text-align: center;
+  font-size: 60px;
 }
 
 .setListButtons {
@@ -28,8 +29,7 @@
 .setListNotes {
   color: black;
   text-align: center;
-}
-
-.card-setListTitle {
-  font-size: 34px;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0px 0px 15px 0px;
 }

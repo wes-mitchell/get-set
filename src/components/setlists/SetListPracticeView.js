@@ -5,6 +5,7 @@ import { SetListCard } from "./SetListCard";
 import { getSetListById } from "../../modules/SetListManager";
 import { getSongById } from "../../modules/SongsManager";
 import { NoteCard } from '../notes/NoteCard';
+import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import './SetListPracticeView.css'
 
 export const SetListPracticeView = ({}) => { 
@@ -21,7 +22,6 @@ export const SetListPracticeView = ({}) => {
     getSongById(setListTrack.song.id)
     .then(song => setSong(song))
     setIsLoading(false)
-    console.log("practice view notes clicked")
   }
 
 
@@ -30,6 +30,7 @@ export const SetListPracticeView = ({}) => {
     .then(res => setSetList(res))
     setIsLoading(false)
   }, [])
+
 
   return (
     <>
@@ -40,7 +41,6 @@ export const SetListPracticeView = ({}) => {
     <div className="practiceViewContainer">
     <SetListCard setList={setList} handleNoteGesture={handleNoteGesture} setDialogVisible={setDialogVisible}/>
     </div>
-    <p className="metronome">Metronome goes here as stretch Goal</p>
     </>
   )
  }
