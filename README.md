@@ -47,7 +47,7 @@ Click [here](https://www.figma.com/file/jYYLF9w6FsAFmyi4ckjZPe/Get-Set?node-id=0
 ## Author Info
 **Created by Wes Mitchell**
 
-- LinkedIn - [Wesley Mitchell](www.linkedin.com/in/wesleymitchell87)
+- LinkedIn - [Wesley Mitchell](https://www.linkedin.com/in/wesleymitchell87/)
 - GitHub - [@wes-mitchell](https://github.com/wes-mitchell)
 - WMDRUMS Website - [Tunes & Things](https://www.wmdrums.com/)
 
