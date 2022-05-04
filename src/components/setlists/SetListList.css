@@ -26,3 +26,8 @@ dialog {
     border:1px solid #6EA4BF;;
     font-family: 'Varela', sans-serif;
   }
+
+h1 {
+  font-family: 'Varela', sans-serif;
+  text-align: center;
+}

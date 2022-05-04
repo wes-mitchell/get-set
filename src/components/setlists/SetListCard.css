@@ -1,7 +1,7 @@
 .card {
   border: solid white 1px;
   border-radius: 5px;
-  width: fit-content;
+  width: 300px;
   padding: 0px 5px 0px 5px;
   background-image: url("./setlistPaper.jpg"); 
   opacity: .8;
