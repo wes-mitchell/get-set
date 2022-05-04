@@ -50,4 +50,13 @@ Click [here](https://www.figma.com/file/jYYLF9w6FsAFmyi4ckjZPe/Get-Set?node-id=0
 - GitHub - [@wes-mitchell](https://github.com/wes-mitchell)
 - WMDRUMS Website - [Tunes & Things](https://www.wmdrums.com/)
 
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Black | ![#000000](https://color-hex.org/colors/000000.png) #000000 |
+| Air Superiority Blue | ![#6ea4bf](https://color-hex.org/colors/6ea4bf.png) #6ea4bf |
+| Black Coffee| ![#36303f](https://color-hex.org/colors/36303f.png) #36303f |
+| White | ![#ffffff](https://color-hex.org/colors/ffffff.png) #ffffff |
+
 

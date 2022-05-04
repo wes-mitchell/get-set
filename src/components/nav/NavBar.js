@@ -18,7 +18,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
         <>
             <ul className="navbar">
                 <li className="navbar__logo">
-                    <img src="./images/logo.png" alt="get set logo" />
+                    <img src="./images/logo4.png" alt="get set logo" />
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/" onClick={getAllSetLists}> My Setlists </Link>
