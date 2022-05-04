@@ -33,3 +33,7 @@
   font-weight: 500;
   margin: 0px 0px 15px 0px;
 }
+
+.metronomeContainer {
+  align-self: center;
+}

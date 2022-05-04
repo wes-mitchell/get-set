@@ -66,6 +66,7 @@ fieldset {
   background-blend-mode: cover;
   background-repeat: no-repeat;
   text-align: center;
+  font-family: 'Varela', sans-serif;
 }
 
 .button--close {
@@ -80,5 +81,9 @@ fieldset {
 
 a {
   color: white;
+}
+
+.link--register {
+  font-family: 'Varela', sans-serif;
 }
 
