@@ -25,6 +25,11 @@ fieldset {
   text-align: center;
 }
 
+.form--login > fieldset > input[type="text"] {
+  margin-left: 15.5em;
+  text-align: center;
+}
+
 .label--login {
   width: 8rem;
   display: inline-block;
