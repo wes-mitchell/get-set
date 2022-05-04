@@ -25,6 +25,11 @@ fieldset {
   text-align: center;
 }
 
+.form--login > fieldset > input[type="text"] {
+  margin-left: 15.5em;
+  text-align: center;
+}
+
 .label--login {
   width: 8rem;
   display: inline-block;
@@ -61,6 +66,7 @@ fieldset {
   background-blend-mode: cover;
   background-repeat: no-repeat;
   text-align: center;
+  font-family: 'Varela', sans-serif;
 }
 
 .button--close {
@@ -75,5 +81,9 @@ fieldset {
 
 a {
   color: white;
+}
+
+.link--register {
+  font-family: 'Varela', sans-serif;
 }
 

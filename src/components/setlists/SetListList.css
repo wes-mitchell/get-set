@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: stretch;
+  align-items: baseline;
   color: black;
   gap: 15px;
 }
@@ -23,6 +23,11 @@ dialog {
     z-index: 50;
     width: 120px;
     background-color: black;
-    border:1px solid white;
+    border:1px solid #6EA4BF;;
     font-family: 'Varela', sans-serif;
   }
+
+h1 {
+  font-family: 'Varela', sans-serif;
+  text-align: center;
+}

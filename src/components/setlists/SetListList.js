@@ -82,6 +82,9 @@ export const SetListList = () => {
   
   return (
     <>
+    <div className='welcomeMessage'>
+      <h1>{loggedInUser.name}'s Setlists</h1>
+    </div>
       <dialog className="dialog" id={"dialogBox"} open={dialogVisible}>
         <NoteCard song={song} />
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>

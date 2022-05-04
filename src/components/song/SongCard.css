@@ -1,22 +1,27 @@
 div .trackCard {
   border: 1px solid black;
   display: flex;
-  width: 375px;
+  /* width: 375px; */
   justify-content: space-between;
   border-radius: 5px;
 }
 
 .trackName {
   padding: 0px 10px 0px 3px;
-  /* color: white; */
+  font-size: 20px;
+  font-weight: 550;
+  margin: 7px 0px;
 }
 
 .trackBPM {
   border-left: solid 1px black;
   padding-left: 10px;
   padding-right: 10px;
-  width: 75px;
+  width: 57px;
   text-align: left;
+  font-size: 20px;
+  font-weight: 550;
+  margin: 7px 0px;
   /* color: white; */
 }
 
@@ -31,4 +36,8 @@ div .trackCard {
 
 .songListTrackButtons:hover {
   display: block;
+}
+
+.trackButtons {
+  margin-top: 3px;
 }

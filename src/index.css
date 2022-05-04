@@ -10,8 +10,8 @@ body {
   /* background-color: #30343F; */
   background: rgb(54,48,63);
   background: radial-gradient(circle, rgba(54,48,63,0.9556197478991597) 0%, rgba(110,164,191,1) 95%);
-  font-family: 'Permanent Marker', cursive;
-  /* font-family: 'Nanum Pen Script', cursive; */
+  /* font-family: 'Permanent Marker', cursive; */
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 input::-webkit-outer-spin-button,

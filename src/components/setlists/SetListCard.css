@@ -1,7 +1,7 @@
 .card {
   border: solid white 1px;
   border-radius: 5px;
-  width: fit-content;
+  width: 300px;
   padding: 0px 5px 0px 5px;
   background-image: url("./setlistPaper.jpg"); 
   opacity: .8;
@@ -10,8 +10,9 @@
 
 .card-setListTitle {
   color: black;
-  margin-top: 0px;
+  margin: 0px;
   text-align: center;
+  font-size: 60px;
 }
 
 .setListButtons {
@@ -28,8 +29,11 @@
 .setListNotes {
   color: black;
   text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0px 0px 15px 0px;
 }
 
-.card-setListTitle {
-  font-size: 34px;
+.metronomeContainer {
+  align-self: center;
 }
