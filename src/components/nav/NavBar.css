@@ -17,13 +17,6 @@
   list-style-type: none;
 }
 
-.navbar__link {
-  /* border: #B6B173 solid 1px; */
-  color: #6EA4BF;
-  /* border-radius: 7px; */
-  text-decoration: none; 
-}
-
 img {
   width: 100px;
   height: auto
@@ -42,12 +35,13 @@ li {
 margin-right: 15px;
 }
 
-/* .navbar__link {
+.navbar__link {
+  text-decoration: none;
   width: 220px;
   height: 50px;
   border: none;
   outline: none;
-  color: #fff;
+  color: #6EA4BF;
   background: #111;
   cursor: pointer;
   position: relative;
@@ -100,4 +94,4 @@ margin-right: 15px;
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
-} */
+}

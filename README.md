@@ -1,6 +1,5 @@
 # Get Set
-Get Set is a web app for musicians to generate and edit set lists on fly. The idea comes from personal experience of having to make minor adjustments
-to very similar setlists night after night on a tour which wasted lots of paper and always ended up with a "clean setlist" covered in sharpie markings to denote where the small changes are. I've also included a "practice/performance" view in which a metronome is included for personal work at home or live situations utilizing in ear settings. 
+Get Set is a web app for musicians to generate and edit set lists on fly. The idea comes from personal experience of having to make minor adjustments to very similar setlists night after night on a tour which wasted lots of paper and always ended up with a "clean setlist" covered in sharpie markings to denote where the small changes are. I've also included a "practice/performance" view in which a metronome is included for personal work at home or live situations utilizing in ear settings. 
 
 ## Initial Setup
 1. Clone this repository
