@@ -7,7 +7,8 @@ import { SongCard } from "../song/SongCard";
 import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import "./SetListCard.css"
 import { getAllSongs } from "../../modules/SongsManager";
-import metronomeMin from "@kevinorriss/react-metronome";
+
+
 
 export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture }) => {
   const [setListTracks, setSetListTracks] = useState([])
@@ -83,6 +84,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
           firstBPM === null ? '' : 
           <div className="metronomeContainer">
               <MetronomeMin startBpm={firstBPM} />
+
           </div>
              : ''
         }

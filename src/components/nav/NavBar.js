@@ -8,17 +8,22 @@ import { SongList } from "../song/SongList";
 
 export const NavBar = ({ clearUser, isAuthenticated }) => {
     const navigate = useNavigate()
+    
+    const cymbal = new Audio("/sounds/cymbal.mp3")
 
     const handleLogout = () => {
         clearUser();
         navigate('/');
     }
 
+
+
+
     return (
         <>
             <ul className="navbar">
                 <li className="navbar__logo">
-                    <img src="./images/logo4.png" alt="get set logo" />
+                    <img src={"/images/logo4.png"} alt="get set logo" onClick={() => cymbal.play()}/>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/" onClick={getAllSetLists}> My Setlists </Link>
