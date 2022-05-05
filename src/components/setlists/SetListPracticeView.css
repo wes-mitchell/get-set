@@ -5,8 +5,15 @@
 .metronome {
   color: white;
   text-align: -webkit-right;
-  width: 10em;
+  width: 296px;
   border: 1px solid white;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.metronome__bpm small {
+  color: white;
+  font-family: 'Varela', sans-serif;
 }
 
 dialog {

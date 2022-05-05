@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAllSetListTracks } from "../../modules/SetListTracksManager";
 import { SongCard } from "../song/SongCard";
-import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
-import "./SetListCard.css"
 import { getAllSongs } from "../../modules/SongsManager";
+import "./SetListCard.css"
 
 
 
@@ -50,11 +49,19 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
         setFirstBPM(res[0].song?.bpm)
         setSetListTracks(res)
       })
-  }, [setList])
-
-  return (
-    <>
+    }, [setList])
+    
+    return (
+      <>
       <div className="card-container">
+      {
+        window.location.href.indexOf("practice") > -1 ? 
+        firstBPM === null ? '' : 
+        <div className="metronomeContainer">
+            <MetronomeMin startBpm={firstBPM} />
+        </div>
+           : ''
+      }
         <div className="card">
           <div className="card-content">
             <div className="card-setListTitle">
@@ -64,7 +71,19 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             {setListTracks.map(track => <SongCard track={track} key={track.id} setList={setList} handleDeleteSetListTrack={handleDeleteSetListTrack} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture} />)}
           </div>
         </div>
+        { window.location.href.indexOf("practice") > -1 ?
         <div className="setListButtons">
+          <button type="button"
+            className="setListEdit"
+            onClick={() => { navigate(`/setlist/${setList.id}/edit`) }}>
+            Edit
+          </button>
+          <button type="button"
+            className="setListDelete"
+            onClick={() => handleDeleteSetList(setList.id)}>
+            Delete</button> 
+          </div> : 
+          <div className="setListButtons">
           <button type="button"
             className="setListEdit"
             onClick={() => { navigate(`/setlist/${setList.id}/edit`) }}>
@@ -79,15 +98,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             onClick={() => navigate(`/setlist/${setList.id}/practice`)}
           >Practice</button>
         </div>
-        {
-          window.location.href.indexOf("practice") > -1 ? 
-          firstBPM === null ? '' : 
-          <div className="metronomeContainer">
-              <MetronomeMin startBpm={firstBPM} />
-
-          </div>
-             : ''
-        }
+        }       
       </div>
     </>
   )
