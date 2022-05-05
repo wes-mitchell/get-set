@@ -64,7 +64,19 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             {setListTracks.map(track => <SongCard track={track} key={track.id} setList={setList} handleDeleteSetListTrack={handleDeleteSetListTrack} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture} />)}
           </div>
         </div>
+        { window.location.href.indexOf("practice") > -1 ?
         <div className="setListButtons">
+          <button type="button"
+            className="setListEdit"
+            onClick={() => { navigate(`/setlist/${setList.id}/edit`) }}>
+            Edit
+          </button>
+          <button type="button"
+            className="setListDelete"
+            onClick={() => handleDeleteSetList(setList.id)}>
+            Delete</button> 
+          </div> : 
+          <div className="setListButtons">
           <button type="button"
             className="setListEdit"
             onClick={() => { navigate(`/setlist/${setList.id}/edit`) }}>
@@ -79,12 +91,12 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             onClick={() => navigate(`/setlist/${setList.id}/practice`)}
           >Practice</button>
         </div>
+        }       
         {
           window.location.href.indexOf("practice") > -1 ? 
           firstBPM === null ? '' : 
           <div className="metronomeContainer">
               <MetronomeMin startBpm={firstBPM} />
-
           </div>
              : ''
         }
