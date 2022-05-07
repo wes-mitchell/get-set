@@ -5,15 +5,19 @@ import { SetListCard } from "./SetListCard";
 import { getSetListById } from "../../modules/SetListManager";
 import { getSongById } from "../../modules/SongsManager";
 import { NoteCard } from '../notes/NoteCard';
+import { deleteSetListTrack } from "../../modules/SetListTracksManager";
+import { getAllSetLists } from "../../modules/SetListManager";
 import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import './SetListPracticeView.css'
 
-export const SetListPracticeView = ({}) => { 
+export const SetListPracticeView = () => { 
   const [setList, setSetList] = useState({})
   const [song, setSong] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [dialogVisible, setDialogVisible] = useState(false)
   const {setListId} = useParams()
+  const [setLists, setSetLists] = useState([])
+
 
   // handles notes gesture click by opening dialog box w/ notes for song upon button click
 
@@ -24,6 +28,15 @@ export const SetListPracticeView = ({}) => {
     setIsLoading(false)
   }
 
+  // Handles the delete track gesture when clicked from practice view 
+
+  const handleDeleteSetListTrack = (setListTrackId) => {
+    setIsLoading(true)
+    Promise.all([deleteSetListTrack(setListTrackId)
+      .then(() => getSetListById(setListId))
+        .then((res) => setSetList(res))])
+          setIsLoading(false)
+  }
 
   useEffect(() => {
     getSetListById(setListId)
@@ -39,7 +52,7 @@ export const SetListPracticeView = ({}) => {
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
     </dialog>
     <div className="practiceViewContainer">
-    <SetListCard setList={setList} handleNoteGesture={handleNoteGesture} setDialogVisible={setDialogVisible}/>
+    <SetListCard setList={setList} handleNoteGesture={handleNoteGesture} setDialogVisible={setDialogVisible} handleDeleteSetListTrack={handleDeleteSetListTrack} />
     </div>
     </>
   )

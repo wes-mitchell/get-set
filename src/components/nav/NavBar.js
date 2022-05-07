@@ -16,9 +16,6 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
         navigate('/');
     }
 
-
-
-
     return (
         <>
             <ul className="navbar">

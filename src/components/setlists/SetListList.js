@@ -20,6 +20,7 @@ export const SetListList = () => {
   const navigate = useNavigate()
   const [dialogVisible, setDialogVisible] = useState(false)
   const [song, setSong] = useState([])
+  const [setListTracks, setSetListTracks] = useState([])
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
 
   // Handles the delete setlist gesture when clicked by passing set list id as parameter
@@ -41,9 +42,11 @@ export const SetListList = () => {
   // Handles the delete track gesture when clicked from home page
 
   const handleDeleteSetListTrack = (setListTrackId) => {
+    setIsLoading(true)
       deleteSetListTrack(setListTrackId)
-      .then(() => getAllSetLists())
-      .then(res => setSetLists(res))
+      .then(() => getAllSetListTracks())
+      .then(res => setSetListTracks(res))
+      setIsLoading(false)
     }
 
     // handles notes gesture click by opening dialog box w/ notes for song upon button click
@@ -70,12 +73,17 @@ export const SetListList = () => {
     .then(setSetLists);
   }, []);
 
-  // ========= gets all songs and sets initial state of songs
+  // ========= gets all songs and sets initial state of songs ======
 
   useEffect(() => {
     getAllSongs()
     .then(setSongs)
   }, [])
+
+  useEffect(() => {
+    getAllSetLists()
+    .then(setSetLists);
+  }, [setListTracks]);  
 
 
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========

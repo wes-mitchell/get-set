@@ -45,3 +45,22 @@ export const getSetListTracksByCurrentSetList = (currentSetListId) => {
   return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}&_expand=song`)
   .then(res => res.json())
  }
+
+ // Get set list track by id and patch with updated info
+
+ export const updateSetListTrack = (editedSetListTrack) => { 
+  return fetch(`${remoteURL}/setListTracks/${editedSetListTrack.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      listOrder: editedSetListTrack.listOrder
+    })
+  }).then(data => data.json())
+ }
+
+ export const getSetListTracksByCurrentSetListNoExpand = (currentSetListId) => { 
+  return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}`)
+  .then(res => res.json())
+ }
