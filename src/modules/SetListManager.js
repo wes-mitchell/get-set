@@ -50,3 +50,10 @@ export const getSetListById = (setListId) => {
   return fetch(`${remoteURL}/setLists/${setListId}`)
   .then(res => res.json())
 }
+
+// Gets setlists by user id
+
+export const getSetListsByUserId = (userId) => { 
+  return fetch(`${remoteURL}/setLists?userId=${userId}`)
+  .then(res => res.json())
+}

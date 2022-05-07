@@ -14,50 +14,22 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const {setListId} = useParams()
-  const [allSongs, setAllSongs] = useState([])
   const navigate = useNavigate()
   const [trackIndex, setTrackIndex] = useState(0)
   const [firstBPM, setFirstBPM] = useState(null)
   const [currentSetList, setCurrentSetList] = useState([])
-
-  // const setbpm = () => {
-  //     setFirstBPM(null)
-  //     setTrackIndex(trackIndex + 1)
-  //     setFirstBPM(setListTracks[trackIndex].song.bpm)
-  // }
-
-  // Takes a set array as a parameter and returns all tracks related to current setlist by id
-
-  const thisSetList = (setArr) => {
-    return setArr.filter(setListTrack => {
-      return setListTrack.setListId === setList.id
-    })
-  }
+  
+  // Sets state of all set list tracks related to current users setlists
 
   useEffect(() => {
-    getAllSongs()
-    .then(res => setAllSongs(res))
-    setIsLoading(false)
-  }, [])
-
-
-  useEffect(() => {
-    getAllSetListTracks()
-      .then(res => {
-       const filteredList = thisSetList(res)
-      return filteredList
+    getSetListTracksByCurrentSetList(setList.id)
+    .then(setListTracks => {
+      setFirstBPM(setListTracks[0].song?.bpm)
+      setSetListTracks(setListTracks)
     })
-      .then(res => {
-        setFirstBPM(res[0].song?.bpm)
-        setSetListTracks(res)
-      })
-    }, [setList])
+  }, [setList])
 
-    useEffect(() => {
-      getSetListTracksByCurrentSetList(setListId)
-      .then(res => setCurrentSetList(res))
-    }, [])
-    
+
     return (
       <>
       <div className="card-container">
