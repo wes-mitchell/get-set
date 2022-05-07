@@ -1,9 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import "./SongCard.css"
 
-export const SongCard = ({ track, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture, handleNoteClickPracticeView }) => {
+export const SongCard = ({ track, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture, currentSetList, setCurrentSetList }) => {
   const navigate = useNavigate()
+
+
   return (
     <>
       <div className="trackCard">

@@ -42,7 +42,7 @@ export const SongForm = () => {
     if (song.name === '' || song.notes === '' || song.runTime === '') {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
-    } else if (Number.isInteger(song.bpm) === false) {
+    } else if (!Number.isInteger(song.bpm)) {
       window.alert("Please only use a number for bpm marking")
       setIsLoading(false)
     } else {
