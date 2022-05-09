@@ -1,0 +1,36 @@
+.sequenceOrderFormContainer {
+  font-family: 'Varela', sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trackTotal {
+  font-size: small
+}
+
+.trackOrderForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 15px;
+  border: solid 1px white;
+  padding: 5px;
+  max-width: fit-content;
+  border-radius: 10px;
+}
+
+.saveSequenceButton {
+  justify-content: flex-start;
+  align-self: center;
+}
+
+.sequenceOrderValue {
+  width: 20px;
+}
+
+.form-group-sequenceOrder {
+  display: flex;
+  flex-direction: column;
+}
