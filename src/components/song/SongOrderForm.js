@@ -28,24 +28,39 @@ export const SongOrderForm = () => {
 
   const handleSaveOrderClick = (evt) => {
       setIsLoading(true)
-  
-      setListTracks.forEach(setListTrack => {
-        if (setListTrack.sequenceOrder === 0) {
-          window.alert("Please give all tracks a sequence number")
-          setIsLoading(false)
-        } else {
+
+      const zeroCheck = setListTracks.find(setListTrack => parseInt(setListTrack.sequenceOrder) === 0)
+      const emptyStringCheck = setListTracks.find(setListTrack => setListTrack.sequenceOrder === '')
+
+      if (zeroCheck || emptyStringCheck) {
+        window.alert("Please give all tracks a sequence number")
+        setIsLoading(false)
+      } else {
+        setListTracks.forEach(setListTrack => {
           const updatedTrack = {
-              setListId: setListTrack.setListId,
-              songId: setListTrack.songId,
-              id: setListTrack.id,
-              sequenceOrder: parseInt(setListTrack.sequenceOrder)
-          }
-          setIsLoading(true)
-          updateSetListTrack(updatedTrack)
-        }
+            setListId: setListTrack.setListId,
+            songId: setListTrack.songId,
+            id: setListTrack.id,
+            sequenceOrder: parseInt(setListTrack.sequenceOrder)
+      }
+      updateSetListTrack(updatedTrack)
+      .then(() => navigate('/'))
+  
       })
-      navigate('/')
     }
+  }
+
+    // Promise.all([addSetList(setList)
+    //   .then(setListObj => {
+    //     songs.forEach(song => {
+    //       if (song.checked === true) {
+    //         let newSetListTrack = {
+    //           setListId: setListObj.id,
+    //           songId: song.id,
+    //           sequenceOrder: parseInt(0)
+    //         }
+    //         addSetListTrack(newSetListTrack)
+    //           .then(() => navigate('/'))
 
 
 

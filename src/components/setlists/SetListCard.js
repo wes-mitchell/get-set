@@ -57,7 +57,11 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
           <button type="button"
             className="setListDelete"
             onClick={() => handleDeleteSetList(setList.id)}>
-            Delete</button> 
+            Delete</button>
+          <button type="button"
+            className="setListOrderSequence"
+            onClick={() => { navigate(`/songs/${setList.id}/order`) }}>
+            Update Sequence</button>
           </div> : 
           <div className="setListButtons">
           <button type="button"
@@ -69,6 +73,10 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
             className="setListDelete"
             onClick={() => handleDeleteSetList(setList.id)}>
             Delete</button>
+          <button type="button"
+            className="setListOrderSequence"
+            onClick={() => { navigate(`/songs/${setList.id}/order`) }}>
+            Update Sequence</button>
           <button type="button"
             className="setListPractice"
             onClick={() => navigate(`/setlist/${setList.id}/practice`)}
