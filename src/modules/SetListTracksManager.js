@@ -42,7 +42,7 @@ export const deleteSetListTrack = (setListTrackId) => {
 // Get all tracks by related setlist
 
 export const getSetListTracksByCurrentSetList = (currentSetListId) => { 
-  return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}&_expand=song`)
+  return fetch(`${remoteURL}/setListTracks?setListId=${currentSetListId}&_sort=sequenceOrder&_order=asc&_expand=song`)
   .then(res => res.json())
  }
 
@@ -54,9 +54,7 @@ export const getSetListTracksByCurrentSetList = (currentSetListId) => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      listOrder: editedSetListTrack.listOrder
-    })
+    body: JSON.stringify(editedSetListTrack)
   }).then(data => data.json())
  }
 

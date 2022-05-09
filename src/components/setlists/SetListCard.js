@@ -1,10 +1,8 @@
 import MetronomeMin from "@kevinorriss/react-metronome";
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getAllSetListTracks } from "../../modules/SetListTracksManager";
+import { useNavigate, useParams } from "react-router-dom";
 import { SongCard } from "../song/SongCard";
-import { getAllSongs } from "../../modules/SongsManager";
 import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import "./SetListCard.css"
 
@@ -14,10 +12,9 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const {setListId} = useParams()
-  const navigate = useNavigate()
-  const [trackIndex, setTrackIndex] = useState(0)
   const [firstBPM, setFirstBPM] = useState(null)
   const [currentSetList, setCurrentSetList] = useState([])
+  const navigate = useNavigate()
   
   // Sets state of all set list tracks related to current users setlists
 
