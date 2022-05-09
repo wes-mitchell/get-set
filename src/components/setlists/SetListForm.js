@@ -62,7 +62,8 @@ export const SetListForm = () => {
             if (song.checked === true) {
               let newSetListTrack = {
                 setListId: setListObj.id,
-                songId: song.id
+                songId: song.id,
+                sequenceOrder: parseInt(0)
               }
               addSetListTrack(newSetListTrack)
                 .then(() => navigate('/'))
