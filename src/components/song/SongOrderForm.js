@@ -31,9 +31,13 @@ export const SongOrderForm = () => {
 
       const zeroCheck = setListTracks.find(setListTrack => parseInt(setListTrack.sequenceOrder) === 0)
       const emptyStringCheck = setListTracks.find(setListTrack => setListTrack.sequenceOrder === '')
+      const lengthCheck = setListTracks.find(setListTrack => parseInt(setListTrack.sequenceOrder) > setListTracks.length)
 
       if (zeroCheck || emptyStringCheck) {
         window.alert("Please give all tracks a sequence number")
+        setIsLoading(false)
+      } else if (lengthCheck) {
+        window.alert("Whoops check your numbering")
         setIsLoading(false)
       } else {
         setListTracks.forEach(setListTrack => {
@@ -50,20 +54,6 @@ export const SongOrderForm = () => {
     }
   }
 
-    // Promise.all([addSetList(setList)
-    //   .then(setListObj => {
-    //     songs.forEach(song => {
-    //       if (song.checked === true) {
-    //         let newSetListTrack = {
-    //           setListId: setListObj.id,
-    //           songId: song.id,
-    //           sequenceOrder: parseInt(0)
-    //         }
-    //         addSetListTrack(newSetListTrack)
-    //           .then(() => navigate('/'))
-
-
-
   useEffect(() => {
     getSetListTracksByCurrentSetList(setListId)
     .then(allTracks => setSetListTracks(allTracks))
@@ -75,6 +65,7 @@ export const SongOrderForm = () => {
     <div className="songOrderFormContainer">
     <form className="trackOrderForm">
       <h2 className="trackOrderForm__title">Choose Your Order</h2>
+      <p className="trackTotal">You have {setListTracks.length} total tracks for sequence</p>
       {setListTracks.map(setListTrack => 
       <fieldset key={setListTrack.id}>
        <div className="form-group-songOrder">

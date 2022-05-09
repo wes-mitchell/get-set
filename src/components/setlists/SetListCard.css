@@ -16,7 +16,9 @@
 }
 
 .setListButtons {
-  margin-left: 9.5px;
+  margin-left: 4px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .card-container {
