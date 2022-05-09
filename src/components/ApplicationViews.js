@@ -10,7 +10,7 @@ import { SongForm } from "./song/SongForm"
 import { SongEditForm } from "./song/SongEditForm"
 import { SetListPracticeView } from "./setlists/SetListPracticeView"
 import { SongList } from "./song/SongList"
-import { SongOrderForm } from "./song/SongOrderForm"
+import { SequenceOrderForm } from "./song/SequenceOrderForm"
 
 
 
@@ -51,7 +51,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
         <Route path="/song/:songId/edit" element={<SongEditForm />} />
         <Route path="/songs" element={<SongList />} />
 
-        <Route path="/songs/:setListId/order" element={<SongOrderForm /> } />
+        <Route path="/songs/:setListId/order" element={<SequenceOrderForm /> } />
 
         </Route>
 

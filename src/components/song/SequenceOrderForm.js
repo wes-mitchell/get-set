@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
 import { updateSetListTrack } from "../../modules/SetListTracksManager";
 import { useNavigate } from "react-router-dom";
-import { getSetListTracksByCurrentSetListNoExpand } from "../../modules/SetListTracksManager";
+import "./SequenceOrderForm.css"
 
-export const SongOrderForm = () => {
+export const SequenceOrderForm = () => {
   const [isloading, setIsLoading] = useState(true)
   const [setListTracks, setSetListTracks] = useState([])
   const {setListId} = useParams()
@@ -62,22 +62,22 @@ export const SongOrderForm = () => {
 
   return (
     <>
-    <div className="songOrderFormContainer">
+    <div className="sequenceOrderFormContainer">
     <form className="trackOrderForm">
-      <h2 className="trackOrderForm__title">Choose Your Order</h2>
+      <h2 className="trackOrderForm__title">Sequence Your Tracks</h2>
       <p className="trackTotal">You have {setListTracks.length} total tracks for sequence</p>
       {setListTracks.map(setListTrack => 
       <fieldset key={setListTrack.id}>
-       <div className="form-group-songOrder">
+       <div className="form-group-sequenceOrder">
          <label htmlFor="songOrderTrackName">{setListTrack.song?.name}</label>
          <input type="text" id={setListTrack.id} key={setListTrack.id} 
          onChange={handleListOrderChange} 
-         required autoFocus className="form-control" placeholder="Track Order" value={setListTrack.sequenceOrder} />
+         required autoFocus className="sequenceOrderValue" placeholder="" value={setListTrack.sequenceOrder} />
        </div>
      </fieldset>
     )}
     </form>
-    <button type="button" onClick={() => handleSaveOrderClick()}>Save Order</button>
+    <button type="button" className="saveSequenceButton" onClick={() => handleSaveOrderClick()}>Save Order</button>
     </div>
       </>
   )
