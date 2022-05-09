@@ -16,25 +16,32 @@ export const SongOrderForm = () => {
     
     const updatedTrackArr = [...setListTracks]
     updatedTrackArr.find((trackItem, index) => {
-      if (trackItem.id === parseInt(evt.target.id) && parseInt(evt.target.value) !== NaN) {
-        trackItem.listOrder = parseInt(evt.target.value)
+      if (trackItem.id === parseInt(evt.target.id)) {
+        trackItem.sequenceOrder = evt.target.value
         updatedTrackArr[index] = trackItem
         setSetListTracks(updatedTrackArr)
       }
       return null
-    })
+  })
   }
+
 
   const handleSaveOrderClick = (evt) => {
       setIsLoading(true)
   
       setListTracks.forEach(setListTrack => {
-        if (setListTrack.listOrder === 0 ) {
+        if (setListTrack.sequenceOrder === 0) {
           window.alert("Please give all tracks a sequence number")
           setIsLoading(false)
         } else {
+          const updatedTrack = {
+              setListId: setListTrack.setListId,
+              songId: setListTrack.songId,
+              id: setListTrack.id,
+              sequenceOrder: parseInt(setListTrack.sequenceOrder)
+          }
           setIsLoading(true)
-          updateSetListTrack(setListTrack)
+          updateSetListTrack(updatedTrack)
         }
       })
       navigate('/')
@@ -43,7 +50,7 @@ export const SongOrderForm = () => {
 
 
   useEffect(() => {
-    getSetListTracksByCurrentSetListNoExpand(setListId)
+    getSetListTracksByCurrentSetList(setListId)
     .then(allTracks => setSetListTracks(allTracks))
     setIsLoading(false)
   }, [])
@@ -58,8 +65,8 @@ export const SongOrderForm = () => {
        <div className="form-group-songOrder">
          <label htmlFor="songOrderTrackName">{setListTrack.song?.name}</label>
          <input type="text" id={setListTrack.id} key={setListTrack.id} 
-         onChange={() => handleSaveOrderClick} 
-         required autoFocus className="form-control" placeholder="Track Order" value={setListTrack.listOrder} />
+         onChange={handleListOrderChange} 
+         required autoFocus className="form-control" placeholder="Track Order" value={setListTrack.sequenceOrder} />
        </div>
      </fieldset>
     )}
