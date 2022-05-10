@@ -1,0 +1,25 @@
+.footer {
+  background-color: black;
+  font-family: 'Varela', sans-serif;
+  color: #6EA4BF;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialLinks {
+  list-style: none;
+  padding: 0px;
+}
+
+.socialLinks img {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  justify-content: center;
+}
+
+.footer p {
+  align-self: center;
+  padding: 0px 8px;
+  color: #6EA4BF;
+}

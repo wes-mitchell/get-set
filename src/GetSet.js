@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 import { NavBar } from "./components/nav/NavBar"
 import { ApplicationViews } from "./components/ApplicationViews"
+import { Footer } from "./components/footer/Footer"
 
 export const GetSet = () =>  {
     const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("getSet_user") !== null)
@@ -24,6 +25,7 @@ export const GetSet = () =>  {
                 isAuthenticated={isAuthenticated}
                 setIsAuthenticated={setIsAuthenticated}
             />
+            <Footer />
         </>
     )
 }
