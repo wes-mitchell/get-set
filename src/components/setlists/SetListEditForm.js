@@ -77,7 +77,8 @@ export const SetListEditForm = () => {
             } else if (song.checked === true && !currentSetListTracks.find(setTrack => setTrack.songId === song.id)) {
               let newSetListTrack = {
                 setListId: setListObj.id,
-                songId: song.id
+                songId: song.id,
+                sequenceOrder: parseInt(0)
               }
               addSetListTrack(newSetListTrack)
             }
