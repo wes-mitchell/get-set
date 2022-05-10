@@ -3,12 +3,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SongCard } from "../song/SongCard";
-import { getSetListTracksByCurrentSetList } from "../../modules/SetListTracksManager";
+import { getSetListTracksByCurrentSetList, getAllSetListTracks } from "../../modules/SetListTracksManager";
+import { deleteSetListTrack } from "../../modules/SetListTracksManager";
 import "./SetListCard.css"
 
-
-
-export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListTrack, setDialogVisible, handleNoteGesture }) => {
+export const SetListCard = ({ setList, handleDeleteSetList, setDialogVisible, handleNoteGesture }) => {
   const [setListTracks, setSetListTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const {setListId} = useParams()
@@ -26,6 +25,15 @@ export const SetListCard = ({ setList, handleDeleteSetList, handleDeleteSetListT
     })
   }, [setList])
 
+    // Handles the delete track gesture when clicked from home page
+
+    const handleDeleteSetListTrack = (setListTrackId) => {
+      setIsLoading(true)
+      deleteSetListTrack(setListTrackId)
+        .then(() => getSetListTracksByCurrentSetList(setList.id))
+        .then(res => setSetListTracks(res))
+        .then(() => setIsLoading(false))
+    }
 
     return (
       <>
