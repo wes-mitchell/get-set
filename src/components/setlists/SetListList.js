@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SetListCard } from './SetListCard';
 import { getSetListsByUserId } from '../../modules/SetListManager';
+import { getSetListById } from '../../modules/SetListManager';
 import { getUserById } from '../../modules/UsersManager';
 import { deleteSong, getSongById } from '../../modules/SongsManager';
 import { deleteSetList } from '../../modules/SetListManager';
@@ -20,6 +21,7 @@ export const SetListList = () => {
   const [dialogVisible, setDialogVisible] = useState(false)
   const [song, setSong] = useState([])
   const [setListTracks, setSetListTracks] = useState([])
+  const [setList, setSetList] = useState([])
   const loggedInUser = JSON.parse(sessionStorage.getSet_user)
 
   // Handles the delete setlist gesture when clicked by passing set list id as parameter
@@ -35,16 +37,6 @@ export const SetListList = () => {
         ]) 
           setIsLoading(false)
   }
-
-  // Handles the delete track gesture when clicked from home page
-
-  const handleDeleteSetListTrack = (setListTrackId) => {
-    setIsLoading(true)
-      deleteSetListTrack(setListTrackId)
-      .then(() => getAllSetListTracks())
-      .then(res => setSetListTracks(res))
-      setIsLoading(false)
-    }
 
     // handles notes gesture click by opening dialog box w/ notes for song upon button click
 
@@ -68,15 +60,7 @@ export const SetListList = () => {
   useEffect(() => {
     getSetListsByUserId(loggedInUser.id)
     .then(res => setSetLists(res));
-  }, [setListTracks]);
-
-
-
-  // useEffect(() => {
-  //   getAllSetLists()
-  //   .then(setSetLists);
-  // }, [setListTracks]);  
-
+  }, [setListTracks]); 
 
   // ======= Use .map() to "loop over" the array of setLists that matches the userId array to show a list of setLists to user ========
   
@@ -90,7 +74,7 @@ export const SetListList = () => {
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
       </dialog>
       <div className="container-cards">
-        {setLists.map(setList => <SetListCard setList={setList} key={setList.id} user={user} handleDeleteSetListTrack={handleDeleteSetListTrack} handleDeleteSetList={handleDeleteSetList} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture}/>)}
+        {setLists.map(setList => <SetListCard setList={setList} key={setList.id} user={user} handleDeleteSetList={handleDeleteSetList} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture}/>)}
       </div>
     </>
   )
