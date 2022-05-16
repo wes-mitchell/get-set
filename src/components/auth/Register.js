@@ -48,7 +48,7 @@ export const Register = ({setAuthUser}) => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main className="container--login" style={{ textAlign: "center" }}>
 
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account already exists</div>

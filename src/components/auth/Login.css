@@ -2,6 +2,10 @@
   font-size: 2.5rem;
 }
 
+form h1 {
+  margin-top: 55px;
+}
+
 fieldset {
   min-width: 0;
   padding: 1rem 0;
@@ -52,21 +56,26 @@ fieldset {
 }
 
 .container--login {
+  margin-top: 40px;
+  margin-bottom: 37px;
   text-align: center;
 }
 
 .form--login {
   background-position-x: right;
-  background-image: url("./mic2.jpg");
-  background-size: cover;
+  color: #6EA4BF;
+  background-color: black;
   z-index: 1;
   min-height: 25rem;
   min-width: 45rem;
-  background-color: hsla(0,0%,100%,0.40);
   background-blend-mode: cover;
   background-repeat: no-repeat;
   text-align: center;
   font-family: 'Varela', sans-serif;
+  border-radius: 7px;
+  /* background-image: url("./mic2.jpg");
+  background-size: cover; */
+  /* background-color: hsla(0,0%,100%,0.40); */
 }
 
 .button--close {
