@@ -14,6 +14,7 @@ export const SetListCard = ({ setList, handleDeleteSetList, setDialogVisible, ha
   const [firstBPM, setFirstBPM] = useState(null)
   const [currentSetList, setCurrentSetList] = useState([])
   const navigate = useNavigate()
+
   
   // Sets state of all set list tracks related to current users setlists
 

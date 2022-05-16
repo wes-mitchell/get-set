@@ -9,6 +9,7 @@
   border: 1px solid white;
   border-radius: 5px;
   padding: 7px;
+  margin-top: 10px;
 }
 
 .metronome__bpm small {
