@@ -4,10 +4,15 @@
   color: #6EA4BF;
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
-  position: relative;
+  /* margin-top: 5px; */
+  /* position: relative;
+    bottom: 0;
+    width: 100.4%; */
+
+    position: absolute;
     bottom: 0;
     width: 100.4%;
+    /* height: 2.5rem; */
 }
 
 .socialLinks {
