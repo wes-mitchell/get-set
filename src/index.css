@@ -25,3 +25,12 @@ code {
     monospace; */
     font-family: 'Permanent Marker', cursive;
 }
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 86.8px;
+}

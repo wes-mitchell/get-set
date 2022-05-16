@@ -19,13 +19,17 @@ export const GetSet = () =>  {
     
       return (
         <>
+        <div id="page-container">
+            <div id="content-wrap">
             <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
             <ApplicationViews 
                 setAuthUser={setAuthUser}
                 isAuthenticated={isAuthenticated}
                 setIsAuthenticated={setIsAuthenticated}
             />
+            </div>
             <Footer />
+        </div>
         </>
     )
 }
