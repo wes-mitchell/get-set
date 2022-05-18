@@ -74,7 +74,7 @@ export const SetListList = () => {
         <button className="closeButton" onClick={() => {setDialogVisible(false)}}>Close</button>
       </dialog>
       <div className="container-cards">
-        {setLists.map(setList => <SetListCard setList={setList} key={setList.id} user={user} handleDeleteSetList={handleDeleteSetList} setDialogVisible={setDialogVisible} handleNoteGesture={handleNoteGesture}/>)}
+        {setLists.map(setList => <SetListCard setList={setList} key={setList.id} user={user} setDialogVisible={setDialogVisible} handleDeleteSetList={handleDeleteSetList} handleNoteGesture={handleNoteGesture}/>)}
       </div>
     </>
   )
