@@ -62,7 +62,7 @@ export const SetListEditForm = () => {
     const checkedSong = songs.find(song => song.checked)
 
 
-    if (editedSetList.notes === '' || editedSetList.title === '' || !checkedSong) {
+    if (editedSetList.notes === '' || editedSetList.title === '') {
       window.alert("Looks like you forgot something...")
       setIsLoading(false)
     } else {
