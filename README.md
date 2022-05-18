@@ -26,6 +26,11 @@ Once you've added some songs/tracks and setlists you may edit/delete them at any
 
 If you select "practice" below it's corresponding setlist you will be redirected to a view with a metronome where you can work on particular items with all the info pulled up or use the metronome as an in ear setup for live performance.
 
+## Video Demo of Get Set
+
+https://user-images.githubusercontent.com/99289995/169141401-7e0713a2-7bf7-416a-80fe-3ebf56a1a7ff.mov
+
+
 ### Entity Relationship Diagram
 ![Get Set ERD](/public/images/GetSetERD.PNG)
 
