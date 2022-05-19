@@ -28,7 +28,7 @@ If you select "practice" below it's corresponding setlist you will be redirected
 
 ## Video Demo of Get Set
 
-https://user-images.githubusercontent.com/99289995/169141401-7e0713a2-7bf7-416a-80fe-3ebf56a1a7ff.mov
+https://user-images.githubusercontent.com/99289995/169310343-7869a376-9f46-4af3-a8aa-290f56c6e45e.mp4
 
 
 ### Entity Relationship Diagram
